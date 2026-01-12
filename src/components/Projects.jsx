@@ -8,44 +8,37 @@ const Projects = () => {
             <div className="project-list">
                 <Link to="/teyvat#mondstadt" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Mondstadt</h3>
-                        <p>Project One Content</p>
+                        <h1>Mondstadt</h1>
                     </div>
                 </Link>
                 <Link to="/teyvat#liyue" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Liyue</h3>
-                        <p>Project Two Content</p>
+                        <h1>Liyue</h1>
                     </div>
                 </Link>
                 <Link to="/teyvat#inazuma" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Inazuma</h3>
-                        <p>Project Three Content</p>
+                        <h1>Inazuma</h1>
                     </div>
                 </Link>
                 <Link to="/teyvat#sumeru" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Sumeru</h3>
-                        <p>Project Four Content</p>
+                        <h1>Sumeru</h1>
                     </div>
                 </Link>
                 <Link to="/teyvat#fontaine" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Fontaine</h3>
-                        <p>Project Five Content</p>
+                        <h1>Fontaine</h1>
                     </div>
                 </Link>
                 <Link to="/teyvat#natlan" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Natlan</h3>
-                        <p>Project Six Content</p>
+                        <h1>Natlan</h1>
                     </div>
                 </Link>
-                <Link to="/teyvat#snezhnaya" style={{ textDecoration: 'none' }}>
+                <Link to="/teyvat#nod-krai" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h3>Snezhnaya</h3>
-                        <p>Project Seven Content</p>
+                        <h1>Nod-krai</h1>
                     </div>
                 </Link>
             </div> 

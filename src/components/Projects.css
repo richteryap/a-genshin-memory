@@ -14,31 +14,78 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   margin-top: 2rem;
   width: 100%;
 }
 
+.project-list a:nth-child(1) .project-item {
+  background-image: url('/mondstadt.jpg');
+}
+
+.project-list a:nth-child(2) .project-item {
+  background-image: url('/liyue.jpg');
+}
+
+.project-list a:nth-child(3) .project-item {
+  background-image: url('/inazuma.jpg');
+}
+
+.project-list a:nth-child(4) .project-item {
+  background-image: url('/sumeru.jpg');
+}
+
+.project-list a:nth-child(5) .project-item {
+  background-image: url('/fontaine.jpg');
+}
+
+.project-list a:nth-child(6) .project-item {
+  background-image: url('/natlan.webp');
+}
+
+.project-list a:nth-child(7) .project-item {
+  background-image: url('/nod-krai.png');
+}
+
 .project-item {
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--bg-color);
   color: var(--text-color);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 2rem;
 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   width: 300px;
   min-height: 200px;
-
   box-shadow: 0 4px 6px -1px var(--shadow-color);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
   cursor: pointer;
 }
 
 .project-item:hover {
   transform: translateY(-7px);
-  box-shadow: 0 10px 15px -3px var(--shadow-color);
+  box-shadow: 0 10px 10px -3px var(--shadow-color);
   transition: all 0.3s ease;
+}
+
+.project-item h1 {
+  display: none;
+  background-color: var(--text-bg-color-travels);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+  margin: 0;
+}
+
+.project-item:hover h1 {
+  display: flex;
+  justify-content: center;
 }

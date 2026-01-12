@@ -7,10 +7,10 @@ import Inazuma from './Inazuma.jsx';
 import Sumeru from './Sumeru.jsx';
 import Fontaine from './Fontaine.jsx';
 import Natlan from './Natlan.jsx';
-import Snezhnaya from './Snezhnaya.jsx';
+import Nod_krai from './Nod-krai.jsx';
 
 const Teyvat = () => {
-    const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'snezhnaya'];
+    const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];
     useScrollSpy(sectionIds);
     return (
         <>
@@ -34,8 +34,8 @@ const Teyvat = () => {
                 <section id="natlan">
                     <Natlan />
                 </section>
-                <section id="snezhnaya">
-                    <Snezhnaya />
+                <section id="nod-krai">
+                    <Nod_krai />
                 </section>
             </div>
         </>
