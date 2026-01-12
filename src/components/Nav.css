@@ -5,7 +5,7 @@
     width: 100%;
     height: 60px;
 
-    background-image: linear-gradient(rgba(255, 255, 255, 0.500), rgba(255, 255, 255, 0.500)), url('/nav-bg.png');
+    background-image: linear-gradient(var(--nav-overlay), var(--nav-overlay)), url('/nav-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,14 +15,14 @@
     align-items: center;
     gap: 2rem;
 
-    background-color: #fefeff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px var(--shadow-color);
     z-index: 1000;
 }
 
 .nav-body a {
     text-decoration: none;
-    color: #454545;
+    color: var(--text-color);
     font-size: 1rem;
     font-weight: 500;
     position: relative;
@@ -30,7 +30,7 @@
 }
 
 .nav-body a:hover {
-    color: #38bdf8;
+    color: var(--text-color-header);
 }
 
 .nav-body a::after {
@@ -40,7 +40,7 @@
     bottom: -5px;
     width: 0;
     height: 2px;
-    background-color: #38bdf8;
+    background-color: var(--bg-color-header);
     transition: width 0.3s ease;
 }
 

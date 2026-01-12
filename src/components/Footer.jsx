@@ -1,8 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Footer.css';
 
 const Footer = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        return localStorage.getItem('theme') === 'dark';
+    })
+
+    useEffect(() => {
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [isDarkMode]);
 
     return (
         <div className="footer-container">
@@ -26,7 +40,7 @@ const Footer = () => {
                             <div className="theme-toggle">
                                 <span>Theme Mode: </span>
                                 <div className="toggle-track">
-                                    <input type="checkbox" id="dark-mode-toggle" />
+                                    <input type="checkbox" id="dark-mode-toggle" checked={isDarkMode} onChange={() => setIsDarkMode(!isDarkMode)}/>
                                     <label htmlFor="dark-mode-toggle"></label>
                                 </div>
                             </div>

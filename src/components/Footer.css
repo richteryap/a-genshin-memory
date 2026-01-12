@@ -33,8 +33,8 @@
   border: none;
   cursor: pointer;
   border-radius: 100%;
-  color: #4b5563;
-  box-shadow: 0px 3px 5px 1px rgba(125, 125, 125, 0.1);
+  color: var(--text-color);
+  box-shadow: 0px 3px 5px 1px var(--shadow-color);
   transition: all 0.3s ease;
 }
 
@@ -45,9 +45,9 @@
 
 .setting-button:hover {
   background: transparent;
-  color: #0ea5e9;
+  color: var(--text-color-header);
   transform: rotate(45deg);
-  box-shadow: 5px 5px 10px -1px rgba(125, 125, 125, 0.2);    
+  box-shadow: 5px 5px 10px -1px var(--shadow-color);    
 }
 
 .setting-content {
@@ -59,11 +59,11 @@
   right: 0;
   margin-bottom: 10px;
 
-  background-color: white;
+  background-color: var(--bg-color);
   width: 180px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 4px var(--shadow-color);
 }
 
 .setting-content span {
@@ -76,10 +76,10 @@
   position: relative;
   display: block;
   cursor: pointer;
-  background: #ebebeb;
+  background: var(--bg-color);
   border-radius: 200px;
-  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
-    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0px 5px 15px var(--setting-btn-shadow1),
+    inset 0px -5px 15px var(--setting-btn-shadow2);
   transition: 0.3s;
 }
 
@@ -90,9 +90,9 @@
   position: absolute;
   top: 2.5px;
   left: 2.5px;
-  background: linear-gradient(180deg, #ffffff, #d1d1d1);
+  background: linear-gradient(180deg, var(--circle-btn-light1), var(--circle-btn-light2));
   border-radius: 180px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 5px 10px var(--shadow-color);
   transition: 0.3s;
 }
 
@@ -103,13 +103,13 @@
 }
 
 .setting-content input:checked + label {
-  background: #242424;
+  background: var(--bg-color);
 }
 
 .setting-content input:checked + label:after {
   left: calc(100% - 2.5px);
   transform: translateX(-100%);
-  background: linear-gradient(180deg, #777, #3a3a3a);
+  background: linear-gradient(180deg, var(--circle-btn-dark1), var(--circle-btn-dark2));
 }
 
 .setting-content label:active:after{
@@ -123,7 +123,7 @@
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
 }
 
 .theme-toggle {
@@ -133,5 +133,5 @@
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color);
 }
