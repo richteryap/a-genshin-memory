@@ -1,0 +1,11 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-body {
+  padding-top: 60px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 auto;
+}

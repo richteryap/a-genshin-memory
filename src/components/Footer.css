@@ -1,0 +1,137 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  margin: 1rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+}
+
+.settings-dropdown {
+  margin: 0;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.setting-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 100%;
+  color: #4b5563;
+  box-shadow: 0px 3px 5px 1px rgba(125, 125, 125, 0.1);
+  transition: all 0.3s ease;
+}
+
+.setting-button svg {
+  width: 1rem;
+  height: 1.6rem;
+}
+
+.setting-button:hover {
+  background: transparent;
+  color: #0ea5e9;
+  transform: rotate(45deg);
+  box-shadow: 5px 5px 10px -1px rgba(125, 125, 125, 0.2);    
+}
+
+.setting-content {
+  position: absolute;
+  margin: 0;
+  padding: 0.5rem;
+
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 10px;
+
+  background-color: white;
+  width: 180px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.setting-content span {
+  padding-top: 23px;
+}
+
+.setting-content label {
+  width: 65px;
+  height: 35px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  transition: 0.3s;
+}
+
+.setting-content label:after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  background: linear-gradient(180deg, #ffffff, #d1d1d1);
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.setting-content input{
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.setting-content input:checked + label {
+  background: #242424;
+}
+
+.setting-content input:checked + label:after {
+  left: calc(100% - 2.5px);
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.setting-content label:active:after{
+  width: 35px;
+}
+
+.editor-mode-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.theme-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
