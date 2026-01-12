@@ -30,7 +30,7 @@
 }
 
 .nav-body a:hover {
-    color: var(--text-color-header);
+    color: var(--cyan-color-theme);
 }
 
 .nav-body a::after {
@@ -40,7 +40,7 @@
     bottom: -5px;
     width: 0;
     height: 2px;
-    background-color: var(--bg-color-header);
+    background-color: var(--cyan-color-theme);
     transition: width 0.3s ease;
 }
 

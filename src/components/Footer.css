@@ -45,7 +45,7 @@
 
 .setting-button:hover {
   background: transparent;
-  color: var(--text-color-header);
+  color: var(--cyan-color-theme);
   transform: rotate(45deg);
   box-shadow: 5px 5px 10px -1px var(--shadow-color);    
 }
@@ -123,7 +123,9 @@
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  border: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }
 
 .theme-toggle {
@@ -133,5 +135,7 @@
   align-items: center;
   text-align: center;
   gap: 0.5rem;
-  border: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }

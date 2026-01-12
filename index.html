@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="\g-logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teyvat</title>
+    <style>
+      html.dark-mode {
+        background-color: rgb(38, 39, 40);
+        color: white;
+      }
+    </style>
+    <script>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

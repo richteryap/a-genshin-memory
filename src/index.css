@@ -10,10 +10,8 @@
 
   --bg-color: #ffffff;
   --text-color: black;
-  --bg-color-header: #38bdf8;
-  --text-color-header: #38bdf8;
-  --card-bg: #ffffff;
-  --border-color: #e5e7eb;
+  --cyan-color-theme: #38bdf8;
+  --border-color: #38bdf8;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --nav-overlay: rgba(255, 255, 255, 0.5);
   --setting-btn-shadow1: rgba(0, 0, 0, 0.4);
@@ -24,15 +22,13 @@
   --circle-btn-dark2: #000000;
 }
 
-body.dark-mode {
-  --bg-color: #111827;
+html.dark-mode {
+  --bg-color: rgb(38, 39, 40);
   --text-color: white;
-  --bg-color-header: #206d8f;
-  --text-color-header: #206d8f;
-  --card-bg: #1f2937;
-  --border-color: #374151;
+  --cyan-color-theme: #0D47A1;
+  --border-color: #42A5F5;
   --shadow-color: rgba(0, 0, 0, 0.5);
-  --nav-overlay: rgba(0, 0, 0, 0.7);
+  --nav-overlay: rgba(0, 0, 0, 0.3);
   --setting-btn-shadow1: rgba(255, 255, 255, 0.4);
   --setting-btn-shadow2: rgba(0, 0, 0, 0.4);
   --circle-btn-light1: #ffffff;
