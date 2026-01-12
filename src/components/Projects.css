@@ -21,30 +21,58 @@
 }
 
 .project-list a:nth-child(1) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/mondstadt.jpg');
+}
+
+.project-list a:nth-child(1) .project-item:hover {
   background-image: url('/mondstadt.jpg');
 }
 
 .project-list a:nth-child(2) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/liyue.jpg');
+}
+
+.project-list a:nth-child(2) .project-item:hover {
   background-image: url('/liyue.jpg');
 }
 
 .project-list a:nth-child(3) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/inazuma.jpg');
+}
+
+.project-list a:nth-child(3) .project-item:hover {
   background-image: url('/inazuma.jpg');
 }
 
 .project-list a:nth-child(4) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/sumeru.jpg');
+}
+
+.project-list a:nth-child(4) .project-item:hover {
   background-image: url('/sumeru.jpg');
 }
 
 .project-list a:nth-child(5) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/fontaine.jpg');
+}
+
+.project-list a:nth-child(5) .project-item:hover {
   background-image: url('/fontaine.jpg');
 }
 
 .project-list a:nth-child(6) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/natlan.webp');
+}
+
+.project-list a:nth-child(6) .project-item:hover {
   background-image: url('/natlan.webp');
 }
 
 .project-list a:nth-child(7) .project-item {
+  background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/nod-krai.png');
+}
+
+.project-list a:nth-child(7) .project-item:hover {
   background-image: url('/nod-krai.png');
 }
 
