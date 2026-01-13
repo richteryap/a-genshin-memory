@@ -1,6 +1,6 @@
 import './Nod-krai.css';
 
-const Nod_krai = () => {
+const Nod_krai = ({ isEditing }) => {
     return (
         <div className="nod-krai-container">
             <div className="nod-krai-content">
@@ -9,7 +9,8 @@ const Nod_krai = () => {
                 </div>
                 <div className="nod-krai-text">
                     <h1>Nod-krai</h1>
-                    <p>Nod-krai Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Nod-krai Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import './Liyue.css';
 
-const Liyue = () => {
+const Liyue = ({ isEditing }) => {
     return (
         <div className="liyue-container">
             <div className="liyue-content">
@@ -9,7 +9,8 @@ const Liyue = () => {
                 </div>
                 <div className="liyue-text">
                     <h1>Liyue</h1>
-                    <p>Liyue Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Liyue Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import './Natlan.css';
 
-const Natlan = () => {
+const Natlan = ({ isEditing }) => {
     return (
         <div className="natlan-container">
             <div className="natlan-content">
@@ -9,7 +9,8 @@ const Natlan = () => {
                 </div>
                 <div className="natlan-text">
                     <h1>Natlan</h1>
-                    <p>Natlan Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Natlan Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

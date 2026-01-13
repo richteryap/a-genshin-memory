@@ -4,3 +4,122 @@
   padding-right: 2rem;
   margin: 0 auto;
 }
+
+.editor-sidebar {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: fixed;
+  width: 240px;
+  left: -205px;
+
+  background: var(--bg-color);
+  box-shadow: 2px 0 10px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0 10px 10px 0;
+
+  transition: left 0.4s ease;
+  z-index: 1000;
+}
+
+.editor-sidebar.open {
+  left: -10px;
+}
+
+.sidebar-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 210px;
+  height: 50px;
+    
+  font-size: 30px;
+  color: var(--text-color);
+  padding: 10px 0;
+  cursor: pointer;
+  z-index: 1000;
+
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  border: none;
+    
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+.editor-sidebar.open .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.editor-bar {
+  display: flex;
+  justify-content: center;
+  margin-right: 3.125rem; 
+  padding-bottom: 1.25rem;
+}
+
+.editor-bar span {
+  padding-top: 23px;
+}
+
+.editor-bar label {
+  width: 65px;
+  height: 35px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background: var(--bg-color);
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px var(--setting-btn-shadow1),
+    inset 0px -5px 15px var(--setting-btn-shadow2);
+  transition: 0.3s;
+}
+
+.editor-bar label:after {
+  content: "";
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  background: linear-gradient(180deg, var(--circle-btn-light1), var(--circle-btn-light2));
+  border-radius: 180px;
+  box-shadow: 0px 5px 10px var(--shadow-color);
+  transition: 0.3s;
+}
+
+.editor-bar input{
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.editor-bar input:checked + label {
+  background: var(--bg-color);
+}
+
+.editor-bar input:checked + label:after {
+  left: calc(100% - 2.5px);
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, var(--circle-btn-dark1), var(--circle-btn-dark2));
+}
+
+.editor-bar label:active:after{
+  width: 35px;
+}
+
+.editor-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

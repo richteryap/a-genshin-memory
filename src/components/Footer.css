@@ -51,8 +51,9 @@
 }
 
 .setting-content {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  margin: 0;
   padding: 0.5rem;
 
   bottom: 100%;
@@ -116,26 +117,8 @@
   width: 35px;
 }
 
-.editor-mode-toggle {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 0.5rem;
-  border-top: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-}
-
 .theme-toggle {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
 }

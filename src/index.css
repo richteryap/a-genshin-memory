@@ -34,10 +34,10 @@ html.dark-mode {
   --nav-overlay: rgba(0, 0, 0, 0.3);
   --setting-btn-shadow1: rgba(255, 255, 255, 0.4);
   --setting-btn-shadow2: rgba(0, 0, 0, 0.4);
-  --circle-btn-light1: #ffffff;
-  --circle-btn-light2: #d1d1d1;
-  --circle-btn-dark1: #777;
-  --circle-btn-dark2: #3a3a3a;
+  --circle-btn-light1: #777;
+  --circle-btn-light2: #3a3a3a;
+  --circle-btn-dark1: #ffffff;
+  --circle-btn-dark2: #d1d1d1;
   --text-bg-color-travels: rgba(0, 0, 0, 0.5);
   --img-blur-travels1: rgba(0, 0, 0, 0.1);
   --img-blur-travels2: rgba(0, 0, 0, 0.5);

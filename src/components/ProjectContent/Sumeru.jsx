@@ -1,6 +1,6 @@
 import './Sumeru.css';
 
-const Sumeru = () => {
+const Sumeru = ({ isEditing }) => {
     return (
         <div className="sumeru-container">
             <div className="sumeru-content">
@@ -9,7 +9,8 @@ const Sumeru = () => {
                 </div>
                 <div className="sumeru-text">
                     <h1>Sumeru</h1>
-                    <p>Sumeru Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Sumeru Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

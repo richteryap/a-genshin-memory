@@ -1,6 +1,6 @@
 import './Fontaine.css';
 
-const Fontaine = () => {
+const Fontaine = ({ isEditing }) => {
     return (
         <div className="fontaine-container">
             <div className="fontaine-content">
@@ -9,7 +9,8 @@ const Fontaine = () => {
                 </div>
                 <div className="fontaine-text">
                     <h1>Fontaine</h1>
-                    <p>Fontaine Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Fontaine Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

@@ -18,6 +18,34 @@ const Footer = () => {
         }
     }, [isDarkMode]);
 
+    useEffect(() => {
+        if (!isOpen) return;
+
+        let timeoutId;
+
+        const closeSetting = () => {
+            setIsOpen(false);
+        };
+
+        const resetTimer = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(closeSetting, 4000);
+        };
+
+        resetTimer();
+
+        window.addEventListener('mousemove', resetTimer);
+        window.addEventListener('click', resetTimer);
+        window.addEventListener('keydown', resetTimer);
+
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener('mousemove', resetTimer);
+            window.removeEventListener('click', resetTimer);
+            window.removeEventListener('keydown', resetTimer);
+        };
+    }, [isOpen]);
+
     return (
         <div className="footer-container">
             <div className="footer-content">
@@ -30,13 +58,6 @@ const Footer = () => {
                     </button>
                     {isOpen && (
                         <div className="setting-content">
-                            <div className="editor-mode-toggle">
-                                <span>Editor Mode: </span>
-                                <div className="toggle-track">
-                                    <input type="checkbox" id="editor-mode-toggle" />
-                                    <label htmlFor="editor-mode-toggle"></label>
-                                </div>
-                            </div>
                             <div className="theme-toggle">
                                 <span>Theme Mode: </span>
                                 <div className="toggle-track">

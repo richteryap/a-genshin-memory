@@ -1,6 +1,6 @@
 import './Inazuma.css';
 
-const Inazuma = () => {
+const Inazuma = ({ isEditing }) => {
     return (
         <div className="inazuma-container">
             <div className="inazuma-content">
@@ -9,7 +9,8 @@ const Inazuma = () => {
                 </div>
                 <div className="inazuma-text">
                     <h1>Inazuma</h1>
-                    <p>Inazuma Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Inazuma Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>

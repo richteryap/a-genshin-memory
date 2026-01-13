@@ -1,6 +1,6 @@
 import './Mondstadt.css';
 
-const Mondstadt = () => {
+const Mondstadt = ({ isEditing }) => {
     return (
         <div className="mondstadt-container">
             <div className="mondstadt-content">
@@ -9,7 +9,8 @@ const Mondstadt = () => {
                 </div>
                 <div className="mondstadt-text">
                     <h1>Mondstadt</h1>
-                    <p>Mondstadt Content Coming Soon!</p>
+                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
+                    ) : ( <p>Mondstadt Content Coming Soon!</p> )}
                 </div>
             </div>
         </div>
