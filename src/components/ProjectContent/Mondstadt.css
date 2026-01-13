@@ -5,29 +5,47 @@
   justify-content: center;
   align-items: center; 
   text-align: center;
-  padding-bottom: 3rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 .mondstadt-content {
   display: flex;
+  position: relative;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   text-align: left;
-  gap: 1rem;
-  margin: 0;
-  border: 1px solid var(--border-color);
+
+  width: 100%;
+  height: calc(100vh - 80px);
 }
 
 .mondstadt-image {
-  display: flex;
+  position: absolute;
+  left: calc(5%);
   padding: 10rem;
-  border: 1px solid var(--border-color);
+  border-radius: 10px;
 }
 
 .mondstadt-text {
+  position: absolute;
+  left: calc(50%);
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
-  border: 1px solid var(--border-color);
+
+  height: 50%;
+  width: 35%;
+  padding: 10px 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(2px);
+}
+
+.mondstadt-text h1 {
+  padding: 10px 0;
+  margin: 0;
+}
+
+.mondstadt-text p {
+  margin: 0;
 }

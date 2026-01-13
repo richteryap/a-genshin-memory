@@ -1,6 +1,10 @@
 import './Natlan.css';
 
 const Natlan = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="natlan-container">
             <div className="natlan-content">
@@ -9,8 +13,16 @@ const Natlan = ({ isEditing }) => {
                 </div>
                 <div className="natlan-text">
                     <h1>Natlan</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Natlan Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Natlan Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>

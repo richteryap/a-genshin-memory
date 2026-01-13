@@ -1,6 +1,10 @@
 import './Fontaine.css';
 
 const Fontaine = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="fontaine-container">
             <div className="fontaine-content">
@@ -9,8 +13,16 @@ const Fontaine = ({ isEditing }) => {
                 </div>
                 <div className="fontaine-text">
                     <h1>Fontaine</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Fontaine Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Fontaine Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>

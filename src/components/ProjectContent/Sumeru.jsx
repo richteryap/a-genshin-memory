@@ -1,6 +1,10 @@
 import './Sumeru.css';
 
 const Sumeru = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="sumeru-container">
             <div className="sumeru-content">
@@ -9,8 +13,16 @@ const Sumeru = ({ isEditing }) => {
                 </div>
                 <div className="sumeru-text">
                     <h1>Sumeru</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Sumeru Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Sumeru Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>

@@ -1,6 +1,10 @@
 import './Liyue.css';
 
 const Liyue = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="liyue-container">
             <div className="liyue-content">
@@ -9,8 +13,16 @@ const Liyue = ({ isEditing }) => {
                 </div>
                 <div className="liyue-text">
                     <h1>Liyue</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Liyue Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Liyue Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>

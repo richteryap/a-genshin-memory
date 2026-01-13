@@ -1,6 +1,10 @@
 import './Nod-krai.css';
 
 const Nod_krai = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="nod-krai-container">
             <div className="nod-krai-content">
@@ -9,8 +13,16 @@ const Nod_krai = ({ isEditing }) => {
                 </div>
                 <div className="nod-krai-text">
                     <h1>Nod-krai</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Nod-krai Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Nod-krai Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>

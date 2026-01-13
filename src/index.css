@@ -62,3 +62,60 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+.edit-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.edit-description {
+  padding-right: 90px;
+  width: 95%;
+  min-height: 100%;
+    
+  font-family: inherit;  
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+    
+  background-color: transparent;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+  padding: 8px;
+
+  field-sizing: content;
+    
+  resize: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.edit-description:focus {
+  background-color: var(--bg-color);
+  border-style: solid;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+.save-btn {
+  position: absolute;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.2s;
+  z-index: 5;
+}
+
+.save-btn:hover {
+  background-color: #059669;
+}

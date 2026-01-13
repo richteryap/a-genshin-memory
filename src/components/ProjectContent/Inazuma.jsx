@@ -1,6 +1,10 @@
 import './Inazuma.css';
 
 const Inazuma = ({ isEditing }) => {
+    const handleSave = () => {
+        console.log("Saving data...");
+    };
+
     return (
         <div className="inazuma-container">
             <div className="inazuma-content">
@@ -9,8 +13,16 @@ const Inazuma = ({ isEditing }) => {
                 </div>
                 <div className="inazuma-text">
                     <h1>Inazuma</h1>
-                    {isEditing ? ( <textarea className="edit-description" defaultValue=""/>
-                    ) : ( <p>Inazuma Content Coming Soon!</p> )}
+                    {isEditing ? (
+                        <div className="edit-wrapper">
+                            <textarea className="edit-description" defaultValue=""/>
+                            <button className="save-btn" onClick={handleSave}>
+                                <i className="fas fa-save"></i> Save
+                            </button>
+                        </div>
+                    ) : ( 
+                        <p>Inazuma Content Coming Soon!</p>
+                    )}
                 </div>
             </div>
         </div>
