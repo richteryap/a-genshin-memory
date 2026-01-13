@@ -7,19 +7,23 @@
 
 .editor-sidebar {
   display: flex;
-  justify-content: right;
-  align-items: center;
+  justify-content: flex-start;
   position: fixed;
   width: 240px;
   left: -205px;
+  height: 91.75%;
 
-  background: var(--bg-color);
   box-shadow: 2px 0 10px var(--shadow-color);
   border: 1px solid var(--border-color);
   border-radius: 0 10px 10px 0;
 
   transition: left 0.4s ease;
   z-index: 1000;
+
+  background-image: linear-gradient(var(--sidebar-overlay1), var(--sidebar-overlay2)), url('/nav-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .editor-sidebar.open {
@@ -61,18 +65,18 @@
   transform: rotate(180deg);
 }
 
-.editor-bar {
+.sidebar-content {
   display: flex;
-  justify-content: center;
-  margin-right: 3.125rem; 
+  flex-direction: column;
+  justify-content: space-between;
   padding-bottom: 1.25rem;
 }
 
-.editor-bar span {
+.sidebar-content span {
   padding-top: 23px;
 }
 
-.editor-bar label {
+.sidebar-content label {
   width: 65px;
   height: 35px;
   position: relative;
@@ -85,7 +89,7 @@
   transition: 0.3s;
 }
 
-.editor-bar label:after {
+.sidebar-content label:after {
   content: "";
   width: 30px;
   height: 30px;
@@ -98,24 +102,69 @@
   transition: 0.3s;
 }
 
-.editor-bar input{
+.sidebar-content input{
   width: 0;
   height: 0;
   visibility: hidden;
 }
 
-.editor-bar input:checked + label {
+.sidebar-content input:checked + label {
   background: var(--bg-color);
 }
 
-.editor-bar input:checked + label:after {
+.sidebar-content input:checked + label:after {
   left: calc(100% - 2.5px);
   transform: translateX(-100%);
   background: linear-gradient(180deg, var(--circle-btn-dark1), var(--circle-btn-dark2));
 }
 
-.editor-bar label:active:after{
+.sidebar-content label:active:after{
   width: 35px;
+}
+
+.sidebar-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sidebar-sections a {
+  display: flex;
+  width: 80%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.sidebar-sections a:hover {
+  transform: translateX(10px);
+  backdrop-filter: blur(3px);
+}
+
+.sidebar-sections a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-color);
+  transition: width 0.3s ease;
+}
+
+.sidebar-sections a:hover::after {
+  width: 100%;
+}
+
+.editor-container {
+  padding-left: 2rem;
 }
 
 .editor-mode-toggle {

@@ -55,12 +55,23 @@ const Teyvat = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                         </svg>
                     </button>
-                    <div className='editor-bar'>
-                        <div className="editor-mode-toggle">
-                            <span>Editor Mode: </span>
-                            <div className="toggle-track">
-                                <input type="checkbox" id="editor-mode-toggle" checked={isEditorMode} onChange={() => setIsEditorMode(!isEditorMode)} />
-                                <label htmlFor="editor-mode-toggle"></label>
+                    <div className='sidebar-content'>
+                        <div className="sidebar-sections">
+                            <a href="/teyvat#mondstadt">Mondstadt</a>
+                            <a href="/teyvat#liyue">Liyue</a>
+                            <a href="/teyvat#inazuma">Inazuma</a>
+                            <a href="/teyvat#sumeru">Sumeru</a>
+                            <a href="/teyvat#fontaine">Fontaine</a>
+                            <a href="/teyvat#natlan">Natlan</a>
+                            <a href="/teyvat#nod-krai">Nod-krai</a>
+                        </div>
+                        <div className='editor-container'>
+                            <div className="editor-mode-toggle">
+                                <span>Editor Mode: </span>
+                                <div className="toggle-track">
+                                    <input type="checkbox" id="editor-mode-toggle" checked={isEditorMode} onChange={() => setIsEditorMode(!isEditorMode)} />
+                                    <label htmlFor="editor-mode-toggle"></label>
+                                </div>
                             </div>
                         </div>
                     </div>

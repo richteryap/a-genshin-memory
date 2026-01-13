@@ -23,6 +23,8 @@
   --text-bg-color-travels: rgba(255, 255, 255, 0.5);
   --img-blur-travels1: rgba(255, 255, 255, 0.1);
   --img-blur-travels2: rgba(255, 255, 255, 0.5);
+  --sidebar-overlay1: rgba(255, 255, 255);
+  --sidebar-overlay2: rgba(255, 255, 255, 0.1);
 }
 
 html.dark-mode {
@@ -41,6 +43,8 @@ html.dark-mode {
   --text-bg-color-travels: rgba(0, 0, 0, 0.5);
   --img-blur-travels1: rgba(0, 0, 0, 0.1);
   --img-blur-travels2: rgba(0, 0, 0, 0.5);
+  --sidebar-overlay1: rgb(0, 0, 0, 0.1);
+  --sidebar-overlay2: rgba(0, 0, 0, 0.9);
 }
 
 body {
