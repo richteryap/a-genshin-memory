@@ -8,7 +8,7 @@ import Inazuma from './Inazuma.jsx';
 import Sumeru from './Sumeru.jsx';
 import Fontaine from './Fontaine.jsx';
 import Natlan from './Natlan.jsx';
-import Nod_krai from './Nod-krai.jsx';
+import Nod_Krai from './Nod-Krai.jsx';
 
 const Teyvat = () => {
     const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];
@@ -63,7 +63,7 @@ const Teyvat = () => {
                             <a href="/teyvat#sumeru">Sumeru</a>
                             <a href="/teyvat#fontaine">Fontaine</a>
                             <a href="/teyvat#natlan">Natlan</a>
-                            <a href="/teyvat#nod-krai">Nod-krai</a>
+                            <a href="/teyvat#nod-krai">Nod-Krai</a>
                         </div>
                         <div className='editor-container'>
                             <div className="editor-mode-toggle">
@@ -95,7 +95,7 @@ const Teyvat = () => {
                     <Natlan isEditing={isEditorMode}/>
                 </section>
                 <section id="nod-krai">
-                    <Nod_krai isEditing={isEditorMode}/>
+                    <Nod_Krai isEditing={isEditorMode}/>
                 </section>
             </div>
         </>

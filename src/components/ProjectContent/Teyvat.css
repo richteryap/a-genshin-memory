@@ -172,3 +172,88 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.edit-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-edit {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  transition: 0.2s;
+    
+  margin-top: 10px;
+}
+
+.btn-edit:hover {
+  opacity: 1;
+  background: var(--bg-color-hover);
+}
+
+.btn-cancel {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-save {
+  background: #10b981;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background: #059669;
+}
+
+.edit-description {
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+    
+  font-family: inherit;  
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+    
+  background-color: transparent;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+
+  field-sizing: content;
+    
+  resize: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.edit-description:focus {
+  background-color: var(--bg-color);
+  border-style: solid;
+  box-shadow: 0 0 10px var(--shadow-color);
+}

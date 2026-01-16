@@ -1,8 +1,27 @@
+import { useState } from 'react';
 import './Fontaine.css';
 
 const Fontaine = ({ isEditing }) => {
+    const [description, setDescription] = useState(
+        "Fontaine Content Coming Soon!"
+    );
+
+    const [tempDescription, setTempDescription] = useState("");
+
+    const [isEditingThis, setIsEditingThis] = useState(false);
+
+    const startEditing = () => {
+        setTempDescription(description);
+        setIsEditingThis(true);
+    };
+
+    const handleCancel = () => {
+        setIsEditingThis(false);
+    };
+
     const handleSave = () => {
-        console.log("Saving data...");
+        setDescription(tempDescription);
+        setIsEditingThis(false);
     };
 
     return (
@@ -13,15 +32,27 @@ const Fontaine = ({ isEditing }) => {
                 </div>
                 <div className="fontaine-text">
                     <h1>Fontaine</h1>
-                    {isEditing ? (
+                    {isEditingThis ? (
                         <div className="edit-wrapper">
-                            <textarea className="edit-description" defaultValue=""/>
-                            <button className="save-btn" onClick={handleSave}>
-                                <i className="fas fa-save"></i> Save
-                            </button>
+                            <textarea className="edit-description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
+                            <div className="edit-actions">
+                                <button className="btn-cancel" onClick={handleCancel}>
+                                    Cancel
+                                </button>
+                                <button className="btn-save" onClick={handleSave}>
+                                    Save
+                                </button>
+                            </div>
                         </div>
-                    ) : ( 
-                        <p>Fontaine Content Coming Soon!</p>
+                    ) : (
+                        <div className="view-wrapper">
+                            <p>{description}</p>
+                            {isEditing && (
+                                <button className="btn-edit" onClick={startEditing}>
+                                    <i className="fas fa-pencil-alt"></i> Edit
+                                </button>
+                            )}
+                        </div>
                     )}
                 </div>
             </div>

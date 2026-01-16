@@ -1,8 +1,27 @@
-import './Nod-krai.css';
+import { useState } from 'react';
+import './Nod-Krai.css';
 
-const Nod_krai = ({ isEditing }) => {
+const Nod_Krai = ({ isEditing }) => {
+    const [description, setDescription] = useState(
+        "Nod-Krai Content Coming Soon!"
+    );
+
+    const [tempDescription, setTempDescription] = useState("");
+
+    const [isEditingThis, setIsEditingThis] = useState(false);
+
+    const startEditing = () => {
+        setTempDescription(description);
+        setIsEditingThis(true);
+    };
+
+    const handleCancel = () => {
+        setIsEditingThis(false);
+    };
+
     const handleSave = () => {
-        console.log("Saving data...");
+        setDescription(tempDescription);
+        setIsEditingThis(false);
     };
 
     return (
@@ -12,16 +31,28 @@ const Nod_krai = ({ isEditing }) => {
                     < img src="https://static.wikia.nocookie.net/gensin-impact/images/0/0b/Item_Mondstadt_City_Icon.png/revision/latest?cb=20210121163452" alt="Nod-krai Icon" />
                 </div>
                 <div className="nod-krai-text">
-                    <h1>Nod-krai</h1>
-                    {isEditing ? (
+                    <h1>Nod-Krai</h1>
+                    {isEditingThis ? (
                         <div className="edit-wrapper">
-                            <textarea className="edit-description" defaultValue=""/>
-                            <button className="save-btn" onClick={handleSave}>
-                                <i className="fas fa-save"></i> Save
-                            </button>
+                            <textarea className="edit-description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
+                            <div className="edit-actions">
+                                <button className="btn-cancel" onClick={handleCancel}>
+                                    Cancel
+                                </button>
+                                <button className="btn-save" onClick={handleSave}>
+                                    Save
+                                </button>
+                            </div>
                         </div>
-                    ) : ( 
-                        <p>Nod-krai Content Coming Soon!</p>
+                    ) : (
+                        <div className="view-wrapper">
+                            <p>{description}</p>
+                            {isEditing && (
+                                <button className="btn-edit" onClick={startEditing}>
+                                    <i className="fas fa-pencil-alt"></i> Edit
+                                </button>
+                            )}
+                        </div>
                     )}
                 </div>
             </div>
@@ -29,4 +60,4 @@ const Nod_krai = ({ isEditing }) => {
     );
 }
 
-export default Nod_krai;
+export default Nod_Krai;

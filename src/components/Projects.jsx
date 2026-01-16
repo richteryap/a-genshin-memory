@@ -38,7 +38,7 @@ const Projects = () => {
                 </Link>
                 <Link to="/teyvat#nod-krai" style={{ textDecoration: 'none' }}>
                     <div className="project-item">
-                        <h1>Nod-krai</h1>
+                        <h1>Nod-Krai</h1>
                     </div>
                 </Link>
             </div> 
