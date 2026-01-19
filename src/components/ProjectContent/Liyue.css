@@ -47,6 +47,9 @@
 
 .liyue-text p {
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {

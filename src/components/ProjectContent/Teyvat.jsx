@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ScrollToHash from "../PageAssist/ScrollToHash.jsx";
 import useScrollSpy from "../PageAssist/useScrollSpy.js";
+import useAutoClose from '../PageAssist/useAutoClose.js';
 import './Teyvat.css';
 import Mondstadt from './Mondstadt.jsx';
 import Liyue from './Liyue.jsx';
@@ -17,33 +18,7 @@ const Teyvat = () => {
     const [isEditorMode, setIsEditorMode] = useState(false);
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-    useEffect(() => {
-        if (!isSidebarOpen) return;
-
-        let timeoutId;
-
-        const closeSidebar = () => {
-            setSidebarOpen(false);
-        };
-
-        const resetTimer = () => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(closeSidebar, 4000);
-        };
-
-        resetTimer();
-
-        window.addEventListener('mousemove', resetTimer);
-        window.addEventListener('click', resetTimer);
-        window.addEventListener('keydown', resetTimer);
-
-        return () => {
-            clearTimeout(timeoutId);
-            window.removeEventListener('mousemove', resetTimer);
-            window.removeEventListener('click', resetTimer);
-            window.removeEventListener('keydown', resetTimer);
-        };
-    }, [isSidebarOpen]);
+    useAutoClose(isSidebarOpen, () => setSidebarOpen(false), 4000);
 
     return (
         <>
