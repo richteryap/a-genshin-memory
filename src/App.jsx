@@ -9,6 +9,7 @@ import Travels from './components/Projects.jsx'
 import Contact from './components/Contact.jsx';
 import Teyvat from './components/ProjectContent/Teyvat.jsx';
 import Footer from './components/Footer.jsx';
+import AdminLogin from './components/AdminLogin.jsx';
 
 function App() {
   const sectionIds = ['home', 'titles', 'travels'];
@@ -33,6 +34,7 @@ function App() {
         } />
         <Route path="/contact/" element={<Contact />} />
         <Route path="/teyvat/" element={<Teyvat />} />
+        <Route path="/admin-login/" element={<AdminLogin />} />
       </Routes>
       <Footer />
     </>
