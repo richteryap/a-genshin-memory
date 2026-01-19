@@ -34,7 +34,7 @@ const Fontaine = ({ isEditing }) => {
                     <h1>Fontaine</h1>
                     {isEditingThis ? (
                         <div className="edit-wrapper">
-                            <textarea className="edit-description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
+                            <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
                             <div className="edit-actions">
                                 <button className="btn-cancel" onClick={handleCancel}>
                                     Cancel
