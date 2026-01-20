@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ScrollToHash from "../PageAssist/ScrollToHash.jsx";
 import useScrollSpy from "../PageAssist/useScrollSpy.js";
 import useAutoClose from '../PageAssist/useAutoClose.js';
+import { auth } from '../../firebase'; // Import Auth
+import { onAuthStateChanged } from 'firebase/auth';
 import './Teyvat.css';
 import Mondstadt from './Mondstadt.jsx';
 import Liyue from './Liyue.jsx';
@@ -19,6 +21,19 @@ const Teyvat = () => {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     useAutoClose(isSidebarOpen, () => setSidebarOpen(false), 4000);
+
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            
+            if (!currentUser) {
+                setIsEditorMode(false);
+            }
+        });
+        return () => unsubscribe();
+    }, []);
 
     return (
         <>
@@ -44,8 +59,8 @@ const Teyvat = () => {
                             <div className="editor-mode-toggle">
                                 <span>Editor Mode: </span>
                                 <div className="toggle-track">
-                                    <input type="checkbox" id="editor-mode-toggle" checked={isEditorMode} onChange={() => setIsEditorMode(!isEditorMode)} />
-                                    <label htmlFor="editor-mode-toggle"></label>
+                                    <input type="checkbox" id="editor-mode-toggle" checked={isEditorMode} disabled={!user} onChange={() => setIsEditorMode(!isEditorMode)} />
+                                    <label htmlFor="editor-mode-toggle" className={!user ? "toggle-disabled" : ""}></label>
                                 </div>
                             </div>
                         </div>

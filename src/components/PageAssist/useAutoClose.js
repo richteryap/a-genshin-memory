@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 const useAutoClose = (isOpen, onClose, timeoutDelay = 4000) => {
-    
     useEffect(() => {
         if (!isOpen) return;
 
