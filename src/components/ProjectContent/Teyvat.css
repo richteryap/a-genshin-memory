@@ -153,7 +153,7 @@
 
 .sidebar-sections a:hover {
   transform: translateX(10px);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(1px);
 }
 
 .sidebar-sections a::after {

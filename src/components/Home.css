@@ -24,7 +24,6 @@
 
   box-shadow: 0 2px 5px -1px var(--shadow-color);
   background-color: var(--card-bg);
-  backdrop-filter: blur(2px);
 
   max-width: 600px; 
   transition: all 0.3s ease;
