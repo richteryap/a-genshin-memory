@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import { useState} from 'react';
+import useRegionData from '../PageAssist/useRegionData';
 import './Mondstadt.css';
 
 const Mondstadt = ({ isEditing }) => {
-    const [description, setDescription] = useState(
-        "Mondstadt Content Coming Soon!"
-    );
+    const { description, saveDescription, isSaving } = useRegionData("mondstadt");
 
     const [tempDescription, setTempDescription] = useState("");
-
     const [isEditingThis, setIsEditingThis] = useState(false);
 
     const startEditing = () => {
@@ -19,9 +17,12 @@ const Mondstadt = ({ isEditing }) => {
         setIsEditingThis(false);
     };
 
-    const handleSave = () => {
-        setDescription(tempDescription);
-        setIsEditingThis(false);
+    const handleSave = async () => {
+        const success = await saveDescription(tempDescription);
+        
+        if (success) {
+            setIsEditingThis(false);
+        }
     };
 
     return (
@@ -34,11 +35,11 @@ const Mondstadt = ({ isEditing }) => {
                         <div className="edit-wrapper">
                             <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
                             <div className="edit-actions">
-                                <button className="btn-cancel" onClick={handleCancel}>
+                                <button className="btn-cancel" onClick={handleCancel} disabled={isSaving}>
                                     Cancel
                                 </button>
-                                <button className="btn-save" onClick={handleSave}>
-                                    Save
+                                <button className="btn-save" onClick={handleSave} disabled={isSaving}>
+                                    {isSaving ? "Saving..." : "Save"}
                                 </button>
                             </div>
                         </div>

@@ -4,7 +4,10 @@
   justify-content: center;
   align-items: center; 
   text-align: center;
-  margin: 1rem;
+
+  margin: 0;
+  padding: 1rem 0;
+  width: 100%;
 }
 
 .footer-content {
@@ -12,7 +15,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   width: 95%;
+  padding: 0 2rem;
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
 }
 
 .settings-dropdown {
@@ -30,12 +41,13 @@
   align-items: center;
 
   background: transparent;
-  border: none;
+  border: 1px solid var(--border-color);
   cursor: pointer;
-  border-radius: 100%;
+  border-radius: 50%;
   color: var(--text-color);
+
   box-shadow: 0px 3px 5px 1px var(--shadow-color);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .setting-button svg {
@@ -43,32 +55,53 @@
   height: 1.6rem;
 }
 
-.setting-button:hover {
+.setting-button:hover,
+.setting-button:active {
   background: transparent;
   color: var(--cyan-color-theme);
   transform: rotate(45deg);
-  box-shadow: 5px 5px 10px -1px var(--shadow-color);    
+  box-shadow: 5px 5px 10px -1px var(--shadow-color);
 }
 
 .setting-content {
   display: flex;
   justify-content: center;
+  align-items: center;
   position: absolute;
-  padding: 0.5rem;
+  padding: 1rem;
 
-  bottom: 100%;
+  bottom: 120%;
   right: 0;
-  margin-bottom: 10px;
 
   background-color: var(--bg-color);
-  width: 180px;
+  width: max-content;
+  min-width: 180px;
+
   border: 1px solid var(--border-color);
   border-radius: 10px;
   box-shadow: 0 1px 4px var(--shadow-color);
+
+  z-index: 1000;
+  animation: popUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .setting-content span {
   padding-top: 23px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .setting-content label {
@@ -117,8 +150,12 @@
   width: 35px;
 }
 
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+@media (max-width: 768px) {
+  .footer-content {
+    padding: 0 1.5rem;
+  }
+
+  .setting-content {
+    right: -10px;
+  }
 }

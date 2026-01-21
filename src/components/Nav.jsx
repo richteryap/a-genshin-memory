@@ -5,6 +5,7 @@ import './Nav.css';
 
 const Nav = () => {
     const [user, setUser] = useState(null);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -16,15 +17,23 @@ const Nav = () => {
     const handleLogout = async () => {
         try {
             await signOut(auth);
+            setIsMenuOpen(false);
             window.location.reload(); 
         } catch (error) {
             console.error("Error logging out:", error);
         }
     };
 
+    const closeMenu = () => setIsMenuOpen(false);
+
     return (
         <div className="nav-body">
-            <div className='nav-content'>
+            <button className={`hamburger-btn ${isMenuOpen ? 'open' : ''}`} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+            </button>
+            <div className={`nav-content ${isMenuOpen ? 'active' : ''}`}>
                 <a href="/#home">Home</a>
                 <a href="/#titles">Titles</a>
                 <a href="/#travels">Travels</a>

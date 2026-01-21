@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ScrollToHash from "../PageAssist/ScrollToHash.jsx";
 import useScrollSpy from "../PageAssist/useScrollSpy.js";
 import useAutoClose from '../PageAssist/useAutoClose.js';
-import { auth } from '../../firebase'; // Import Auth
+import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './Teyvat.css';
 import Mondstadt from './Mondstadt.jsx';

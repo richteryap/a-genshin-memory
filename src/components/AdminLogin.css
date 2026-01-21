@@ -4,6 +4,8 @@
   justify-content: center;
   align-items: center; 
   border-bottom: 1px solid var(--border-color);
+
+  padding: 1rem;
 }
 
 .login-content {
@@ -13,7 +15,9 @@
     border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 32px;
+
     box-shadow: 0 25px 50px var(--shadow-color);
+    background-color: var(--bg-color);
 }
 
 .login-content h2 {
@@ -21,6 +25,8 @@
     font-size: 32px;
     font-weight: 800;
     color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 .login-input {
@@ -31,38 +37,42 @@
 .login-input input {
     width: 100%;
     box-sizing: border-box;
-    height: 40px;
+    height: 45px;
+    
     background: transparent;
-    border: none;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-color);
     font-size: 16px;
     outline: none;
     padding-left: 12px;
+    padding-right: 40px;
+
+    transition: border-color 0.3s ease;
 }
 
 .login-input label {
     position: absolute;
     left: 12px;
-    top: 8px;
+    top: 10px;
     color: var(--text-color);
     pointer-events: none;
     transition: 0.3s;
+    background: transparent;
 }
 
 .login-input input:focus {
-    border: 1px solid var(--border-color);
+    border-color: var(--border-color);
 }
 
 .login-input input:focus + label,
 .login-input input:not(:placeholder-shown) + label {
-    left: 6px;
+    left: 8px;
     top: -10px;
     font-size: 13px;
     color: var(--text-color);
     background: var(--bg-color);
-    padding: 0 3px;
+    padding: 0 4px;
 }
 
 .login-button {
@@ -87,16 +97,21 @@
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+.login-button:active {
+  transform: translateY(0);
+}
+
 .password-toggle-btn {
     position: absolute;
     right: 5px;
-    top: 5px;
+    top: 50%;
+    transform: translateY(-50%);
     
     background: transparent;
     border: none;
     cursor: pointer;
     color: var(--text-color);
-    padding: 5px;
+    padding: 8px;
     
     display: flex;
     align-items: center;
@@ -136,4 +151,18 @@
     50% { transform: translateX(5px); }
     75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
+}
+
+@media (max-width: 480px) {
+  .login-content {
+    padding: 24px 20px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+  }
+
+  .login-content h2 {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
 }
