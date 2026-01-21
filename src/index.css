@@ -8,7 +8,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --bg-color: #ffffff;
+  --bg-color: rgba(255, 255, 255);
   --text-color: #202124;
   --cyan-color-theme: #38bdf8;
   --border-color: #38bdf8;

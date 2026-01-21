@@ -11,9 +11,9 @@
 .inazuma-content {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 4rem;
+  gap: 1rem;
 
   width: 100%;
   height: 60vh;
@@ -22,8 +22,14 @@
 
 .inazuma-image {
   flex: 1;
-  max-width: 500px;
-  border-radius: 10px;
+  max-width: 700px;
+  height: 683px;
+  border-right: 1px solid var(--border-color);
+
+  background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/inazuma.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .inazuma-text {
