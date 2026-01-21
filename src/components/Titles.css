@@ -1,4 +1,4 @@
-.about-container {
+.titles-container {
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
@@ -11,13 +11,13 @@
   padding: 0 1rem;
 }
 
-.about-content h1 {
+.titles-content h1 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   margin-top: 0;
 }
 
-.about-cards {
+.titles-cards {
   display: flex;
   height: 300px;
   width: 100%;
@@ -28,7 +28,7 @@
   justify-content: center;
 }
 
-.about-cards p {
+.titles-cards p {
   cursor: pointer;
   height: 100%;
   flex: 1;
@@ -46,7 +46,7 @@
   position: relative;
 }
 
-.about-cards p span {
+.titles-cards p span {
   min-width: 1px;
   transform: rotate(-90deg);
   text-align: center;
@@ -54,31 +54,31 @@
 }
 
 @media (min-width: 769px) {
-  .about-cards p:hover {
+  .titles-cards p:hover {
     flex: 7;
   }
 
-  .about-cards p:hover span {
+  .titles-cards p:hover span {
     transform: rotate(0deg);
   }
 }
 
 @media (max-width: 768px) {
-  .about-container {
+  .titles-container {
     margin-bottom: 2rem;
     min-height: auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
-  .about-cards {
+  .titles-cards {
     flex-direction: column;
     height: auto;
     width: 100%;
     gap: 1rem;
   }
 
-  .about-cards p {
+  .titles-cards p {
     width: 100%;
     height: auto;
     min-height: 80px;
@@ -89,12 +89,12 @@
     border-radius: 12px;
   }
 
-  .about-cards p:hover {
+  .titles-cards p:hover {
     flex: none; 
     transform: scale(0.98);
   }
 
-  .about-cards p span {
+  .titles-cards p span {
     transform: rotate(0deg);
     white-space: normal;
   }

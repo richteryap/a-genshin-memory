@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useRegionData from '../PageAssist/useRegionData';
 import './Natlan.css';
 

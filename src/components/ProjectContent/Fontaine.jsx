@@ -1,4 +1,4 @@
-import { useState} from 'react';
+import { useState } from 'react';
 import useRegionData from '../PageAssist/useRegionData';
 import './Fontaine.css';
 

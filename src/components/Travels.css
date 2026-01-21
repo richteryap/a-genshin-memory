@@ -1,4 +1,4 @@
-.projects-body {
+.travels-body {
   min-height: calc(100vh - 60px); 
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   border-bottom: 1px solid var(--border-color);
 }
 
-.project-list {
+.travel-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -25,7 +25,7 @@
   max-width: 1200px;
 }
 
-.project-item {
+.travel-item {
   display: flex;
   flex-direction: column;
 
@@ -50,7 +50,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.project-item h1 {
+.travel-item h1 {
   display: none;
   
   background-color: var(--text-bg-color-travels);
@@ -64,12 +64,12 @@
   z-index: 2;
 }
 @media (min-width: 769px) {
-  .project-item:hover {
+  .travel-item:hover {
     transform: translateY(-7px);
     box-shadow: 0 10px 10px -3px var(--shadow-color);
   }
 
-  .project-item:hover h1 {
+  .travel-item:hover h1 {
     display: flex;
     justify-content: center;
     animation: fadeIn 0.3s ease;
@@ -81,48 +81,48 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.project-list a:nth-child(1) .project-item {
+.travel-list a:nth-child(1) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/mondstadt.jpg');
 }
-.project-list a:nth-child(2) .project-item {
+.travel-list a:nth-child(2) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/liyue.jpg');
 }
-.project-list a:nth-child(3) .project-item {
+.travel-list a:nth-child(3) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/inazuma.jpg');
 }
-.project-list a:nth-child(4) .project-item {
+.travel-list a:nth-child(4) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/sumeru.jpg');
 }
-.project-list a:nth-child(5) .project-item {
+.travel-list a:nth-child(5) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/fontaine.jpg');
 }
-.project-list a:nth-child(6) .project-item {
+.travel-list a:nth-child(6) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/natlan.webp');
 }
-.project-list a:nth-child(7) .project-item {
+.travel-list a:nth-child(7) .travel-item {
   background-image: linear-gradient(var(--img-blur-travels1), var(--img-blur-travels2)), url('/nod-krai.png');
 }
 
 @media (min-width: 769px) {
-  .project-list a:nth-child(1) .project-item:hover {
+  .travel-list a:nth-child(1) .travel-item:hover {
     background-image: url('/mondstadt.jpg');
   }
-  .project-list a:nth-child(2) .project-item:hover {
+  .travel-list a:nth-child(2) .travel-item:hover {
     background-image: url('/liyue.jpg');
   }
-  .project-list a:nth-child(3) .project-item:hover {
+  .travel-list a:nth-child(3) .travel-item:hover {
     background-image: url('/inazuma.jpg');
   }
-  .project-list a:nth-child(4) .project-item:hover {
+  .travel-list a:nth-child(4) .travel-item:hover {
     background-image: url('/sumeru.jpg');
   }
-  .project-list a:nth-child(5) .project-item:hover {
+  .travel-list a:nth-child(5) .travel-item:hover {
     background-image: url('/fontaine.jpg');
   }
-  .project-list a:nth-child(6) .project-item:hover {
+  .travel-list a:nth-child(6) .travel-item:hover {
     background-image: url('/natlan.webp');
   }
-  .project-list a:nth-child(7) .project-item:hover {
+  .travel-list a:nth-child(7) .travel-item:hover {
     background-image: url('/nod-krai.png');
   }
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import useAuthRedirect from './PageAssist/useAuthRedirect';
+import useAuthRedirect from './PageAssist/useAuthRedirect.js';
 import './AdminLogin.css';
 
 const AdminLogin = () => {

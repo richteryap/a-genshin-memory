@@ -4,8 +4,8 @@ import useScrollSpy from "./components/PageAssist/useScrollSpy.js";
 import './App.css'
 import Home from './components/Home.jsx'
 import Nav from './components/Nav.jsx'
-import Titles from './components/About.jsx'
-import Travels from './components/Projects.jsx'
+import Titles from './components/Titles.jsx'
+import Travels from './components/Travels.jsx'
 import Contact from './components/Contact.jsx';
 import Teyvat from './components/ProjectContent/Teyvat.jsx';
 import Footer from './components/Footer.jsx';

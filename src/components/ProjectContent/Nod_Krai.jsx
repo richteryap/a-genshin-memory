@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useRegionData from '../PageAssist/useRegionData';
-import './Nod-Krai.css';
+import './Nod_Krai.css';
 
 const Nod_Krai = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("nod-krai");

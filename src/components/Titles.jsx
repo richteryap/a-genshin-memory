@@ -1,11 +1,11 @@
-import './About.css';
+import './Titles.css';
 
-const About = () => {
+const Titles = () => {
     return (
-        <div className="about-container">
-            <div className="about-content">
+        <div className="titles-container">
+            <div className="titles-content">
                 <h1>Titles</h1>
-                <div className="about-cards">
+                <div className="titles-cards">
                     <p><span>The Outlander</span></p>
                     <p><span>The Traveler</span></p>
                     <p><span>Honorary Knight of Favonius</span></p>
@@ -30,4 +30,4 @@ const About = () => {
     );
 }
 
-export default About;
+export default Titles;

@@ -11,7 +11,7 @@ import Inazuma from './Inazuma.jsx';
 import Sumeru from './Sumeru.jsx';
 import Fontaine from './Fontaine.jsx';
 import Natlan from './Natlan.jsx';
-import Nod_Krai from './Nod-Krai.jsx';
+import Nod_Krai from './Nod_Krai.jsx';
 
 const Teyvat = () => {
     const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];
