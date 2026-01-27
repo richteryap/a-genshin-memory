@@ -1,6 +1,6 @@
 # A Genshin Memory 🌌
 
-![Project Status](https://img.shields.io/badge/status-archived-orange.svg)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 > A personal documentation website serving as a digital travel log for *Genshin Impact*. It chronicles the regions visited, lore discovered, and the journey of the Traveler across Teyvat.
