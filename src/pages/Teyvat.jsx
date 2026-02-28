@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
+import { auth } from '../firebase.js';
+import { onAuthStateChanged } from 'firebase/auth';
 import ScrollToHash from "../components/ScrollToHash.jsx";
 import useScrollSpy from "../hooks/useScrollSpy.js";
 import useAutoClose from '../hooks/useAutoClose.js';
-import { auth } from '../firebase.js';
-import { onAuthStateChanged } from 'firebase/auth';
-import Mondstadt from '../components/Mondstadt.jsx';
-import Liyue from '../components/Liyue.jsx';
-import Inazuma from '../components/Inazuma.jsx';
-import Sumeru from '../components/Sumeru.jsx';
-import Fontaine from '../components/Fontaine.jsx';  
-import Natlan from '../components/Natlan.jsx';
-import Nod_Krai from '../components/Nod_Krai.jsx';
+import Regions from '../components/Regions.jsx';
 import '../styles/Teyvat.css';
 
 const Teyvat = () => {
@@ -67,25 +61,25 @@ const Teyvat = () => {
                     </div>
                 </div>
                 <section id="mondstadt">
-                    <Mondstadt isEditing={isEditorMode}/>
+                    <Regions regionId="mondstadt" title="Mondstadt" isEditing={isEditorMode} />
                 </section>
                 <section id="liyue">
-                    <Liyue isEditing={isEditorMode}/>
+                    <Regions regionId="liyue" title="Liyue" isEditing={isEditorMode} />
                 </section>
                 <section id="inazuma">
-                    <Inazuma isEditing={isEditorMode}/>
+                    <Regions regionId="inazuma" title="Inazuma" isEditing={isEditorMode} />
                 </section>
                 <section id="sumeru">
-                    <Sumeru isEditing={isEditorMode}/>
+                    <Regions regionId="sumeru" title="Sumeru" isEditing={isEditorMode} />
                 </section>
                 <section id="fontaine">
-                    <Fontaine isEditing={isEditorMode}/>
+                    <Regions regionId="fontaine" title="Fontaine" isEditing={isEditorMode} />
                 </section>
                 <section id="natlan">
-                    <Natlan isEditing={isEditorMode}/>
+                    <Regions regionId="natlan" title="Natlan" isEditing={isEditorMode} />
                 </section>
                 <section id="nod-krai">
-                    <Nod_Krai isEditing={isEditorMode}/>
+                    <Regions regionId="nod-krai" title="Nod-Krai" isEditing={isEditorMode} />
                 </section>
             </div>
         </>

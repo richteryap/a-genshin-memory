@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../styles/Inazuma.css';
+import '../styles/Regions.css';
 
-const Inazuma = ({ isEditing }) => {
-    const { description, saveDescription, isSaving } = useRegionData("inazuma");
+const Regions = ({ regionId, title, isEditing }) => {
+    const { description, saveDescription, isSaving } = useRegionData("mondstadt");
 
     const [tempDescription, setTempDescription] = useState("");
     const [isEditingThis, setIsEditingThis] = useState(false);
@@ -26,14 +26,20 @@ const Inazuma = ({ isEditing }) => {
     };
 
     return (
-        <div className="inazuma-container">
-            <div className="inazuma-content">
-                <div className="inazuma-image"></div>
-                <div className="inazuma-text">
-                    <h1>Inazuma</h1>
+        <div className={`region-container`}>
+            <div className={`region-content`}>
+                <div className={`region-image ${regionId}-image`}></div>
+                <div className={`region-text`}>
+                    <h1>{title}</h1>
+                    
                     {isEditingThis ? (
                         <div className="edit-wrapper">
-                            <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
+                            <textarea 
+                                className="edit-description" 
+                                placeholder="description" 
+                                value={tempDescription} 
+                                onChange={(e) => setTempDescription(e.target.value)}
+                            />
                             <div className="edit-actions">
                                 <button className="btn-cancel" onClick={handleCancel} disabled={isSaving}>
                                     Cancel
@@ -59,4 +65,4 @@ const Inazuma = ({ isEditing }) => {
     );
 }
 
-export default Inazuma;
+export default Regions;
