@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import ScrollToHash from './components/ScrollToHash.jsx';
 import useScrollSpy from "./hooks/useScrollSpy.js";
-import Home from './components/Home.jsx'
-import Nav from './components/Nav.jsx'
-import Titles from './components/Titles.jsx'
-import Travels from './components/Travels.jsx'
-import Contact from './components/Contact.jsx';
-import Footer from './components/Footer.jsx';
-import AdminLogin from './pages/AdminLogin.jsx';
-import Teyvat from './pages/Teyvat.jsx';
+import Home from './components/Home/Home.jsx'
+import Nav from './components/Nav/Nav.jsx'
+import Titles from './components/Titles/Titles.jsx'
+import Travels from './components/Travels/Travels.jsx'
+import Contact from './components/Contact/Contact.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import AdminLogin from './pages/AdminLogin/AdminLogin.jsx';
+import Teyvat from './pages/Teyvat/Teyvat.jsx';
 import './App.css'
 
 function App() {

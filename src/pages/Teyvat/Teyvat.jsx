@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { auth } from '../firebase.js';
+import { auth } from '../../firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
-import ScrollToHash from "../components/ScrollToHash.jsx";
-import useScrollSpy from "../hooks/useScrollSpy.js";
-import useAutoClose from '../hooks/useAutoClose.js';
-import Regions from '../components/Regions.jsx';
-import '../styles/Teyvat.css';
+import ScrollToHash from "../../components/ScrollToHash.jsx";
+import useScrollSpy from "../../hooks/useScrollSpy.js";
+import useAutoClose from '../../hooks/useAutoClose.js';
+import Regions from '../../components/Regions/Regions.jsx';
+import './Teyvat.css';
 
 const Teyvat = () => {
     const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];

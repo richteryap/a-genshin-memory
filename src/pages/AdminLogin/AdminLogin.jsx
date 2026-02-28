@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase.js';
+import { auth } from '../../firebase.js';
 import { useNavigate } from 'react-router-dom';
-import useAuthRedirect from '../hooks/useAuthRedirect.js';
-import '../styles/AdminLogin.css';
+import useAuthRedirect from '../../hooks/useAuthRedirect.js';
+import './AdminLogin.css';
 
 const AdminLogin = () => {
     useAuthRedirect('/');
