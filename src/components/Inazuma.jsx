@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Inazuma.css';
+import '../styles/Inazuma.css';
 
 const Inazuma = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("inazuma");

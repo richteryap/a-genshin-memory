@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Natlan.css';
+import '../styles/Natlan.css';
 
 const Natlan = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("natlan");

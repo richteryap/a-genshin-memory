@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Nod_Krai.css';
+import '../styles/Nod_Krai.css';
 
 const Nod_Krai = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("nod-krai");

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Mondstadt.css';
+import '../styles/Mondstadt.css';
 
 const Mondstadt = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("mondstadt");

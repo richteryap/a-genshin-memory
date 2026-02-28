@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase.js';
 import { useNavigate } from 'react-router-dom';
 import useAuthRedirect from '../hooks/useAuthRedirect.js';
-import '../style/AdminLogin.css';
+import '../styles/AdminLogin.css';
 
 const AdminLogin = () => {
     useAuthRedirect('/');

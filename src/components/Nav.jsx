@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import '../style/Nav.css';
+import '../styles/Nav.css';
 
 const Nav = () => {
     const [user, setUser] = useState(null);

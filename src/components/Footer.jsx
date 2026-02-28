@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import useAutoClose from '../hooks/useAutoClose';
-import '../style/Footer.css';
+import '../styles/Footer.css';
 
 const Footer = () => {
     const [isOpen, setIsOpen] = useState(false);

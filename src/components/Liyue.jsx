@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Liyue.css';
+import '../styles/Liyue.css';
 
 const Liyue = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("liyue");

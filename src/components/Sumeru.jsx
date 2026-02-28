@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import useRegionData from '../hooks/useRegionData';
-import '../style/Sumeru.css';
+import '../styles/Sumeru.css';
 
 const Sumeru = ({ isEditing }) => {
     const { description, saveDescription, isSaving } = useRegionData("sumeru");

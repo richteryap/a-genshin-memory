@@ -11,7 +11,7 @@ import Sumeru from '../components/Sumeru.jsx';
 import Fontaine from '../components/Fontaine.jsx';  
 import Natlan from '../components/Natlan.jsx';
 import Nod_Krai from '../components/Nod_Krai.jsx';
-import '../style/Teyvat.css';
+import '../styles/Teyvat.css';
 
 const Teyvat = () => {
     const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];
