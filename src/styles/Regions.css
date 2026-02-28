@@ -48,10 +48,10 @@
   background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/fontaine.jpg');
 }
 .natlan-image {
-  background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/natlan.jpg');
+  background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/natlan.webp');
 }
 .nod-krai-image {
-  background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/nod-krai.jpg');
+  background-image: linear-gradient(to right, var(--bg-color) 0%, rgb(255, 255, 255, 0) 65%), url('/nod-krai.png');
 }
 
 .region-text {
@@ -116,10 +116,10 @@
     background-image: linear-gradient(to top, var(--bg-color) 0%, transparent 100%), url('/fontaine.jpg');
   }
   .natlan-image {
-    background-image: linear-gradient(to top, var(--bg-color) 0%, transparent 100%), url('/natlan.jpg');
+    background-image: linear-gradient(to top, var(--bg-color) 0%, transparent 100%), url('/natlan.webp');
   }
   .nod-krai-image {
-    background-image: linear-gradient(to top, var(--bg-color) 0%, transparent 100%), url('/nod-krai.jpg');
+    background-image: linear-gradient(to top, var(--bg-color) 0%, transparent 100%), url('/nod-krai.png');
   }
 
   .region-text {
