@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import ScrollToHash from "../PageAssist/ScrollToHash.jsx";
-import useScrollSpy from "../PageAssist/useScrollSpy.js";
-import useAutoClose from '../PageAssist/useAutoClose.js';
-import { auth } from '../../firebase';
+import ScrollToHash from "../components/ScrollToHash.jsx";
+import useScrollSpy from "../hooks/useScrollSpy.js";
+import useAutoClose from '../hooks/useAutoClose.js';
+import { auth } from '../firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
-import './Teyvat.css';
-import Mondstadt from './Mondstadt.jsx';
-import Liyue from './Liyue.jsx';
-import Inazuma from './Inazuma.jsx';
-import Sumeru from './Sumeru.jsx';
-import Fontaine from './Fontaine.jsx';
-import Natlan from './Natlan.jsx';
-import Nod_Krai from './Nod_Krai.jsx';
+import Mondstadt from '../components/Mondstadt.jsx';
+import Liyue from '../components/Liyue.jsx';
+import Inazuma from '../components/Inazuma.jsx';
+import Sumeru from '../components/Sumeru.jsx';
+import Fontaine from '../components/Fontaine.jsx';  
+import Natlan from '../components/Natlan.jsx';
+import Nod_Krai from '../components/Nod_Krai.jsx';
+import '../style/Teyvat.css';
 
 const Teyvat = () => {
     const sectionIds = ['mondstadt', 'liyue', 'inazuma', 'sumeru', 'fontaine', 'natlan', 'nod-krai'];

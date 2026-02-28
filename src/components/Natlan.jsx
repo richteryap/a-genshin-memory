@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import useRegionData from '../PageAssist/useRegionData';
-import './Liyue.css';
+import useRegionData from '../hooks/useRegionData';
+import '../style/Natlan.css';
 
-const Liyue = ({ isEditing }) => {
-    const { description, saveDescription, isSaving } = useRegionData("liyue");
+const Natlan = ({ isEditing }) => {
+    const { description, saveDescription, isSaving } = useRegionData("natlan");
 
     const [tempDescription, setTempDescription] = useState("");
     const [isEditingThis, setIsEditingThis] = useState(false);
@@ -26,11 +26,11 @@ const Liyue = ({ isEditing }) => {
     };
 
     return (
-        <div className="liyue-container">
-            <div className="liyue-content">
-                <div className="liyue-image"></div>
-                <div className="liyue-text">
-                    <h1>Liyue</h1>
+        <div className="natlan-container">
+            <div className="natlan-content">
+                <div className="natlan-image"></div>
+                <div className="natlan-text">
+                    <h1>Natlan</h1>
                     {isEditingThis ? (
                         <div className="edit-wrapper">
                             <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
@@ -59,4 +59,4 @@ const Liyue = ({ isEditing }) => {
     );
 }
 
-export default Liyue;
+export default Natlan;

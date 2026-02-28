@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import useRegionData from '../PageAssist/useRegionData';
-import './Mondstadt.css';
+import useRegionData from '../hooks/useRegionData';
+import '../style/Liyue.css';
 
-const Mondstadt = ({ isEditing }) => {
-    const { description, saveDescription, isSaving } = useRegionData("mondstadt");
+const Liyue = ({ isEditing }) => {
+    const { description, saveDescription, isSaving } = useRegionData("liyue");
 
     const [tempDescription, setTempDescription] = useState("");
     const [isEditingThis, setIsEditingThis] = useState(false);
@@ -26,11 +26,11 @@ const Mondstadt = ({ isEditing }) => {
     };
 
     return (
-        <div className="mondstadt-container">
-            <div className="mondstadt-content">
-                <div className="mondstadt-image"></div>
-                <div className="mondstadt-text">
-                    <h1>Mondstadt</h1>
+        <div className="liyue-container">
+            <div className="liyue-content">
+                <div className="liyue-image"></div>
+                <div className="liyue-text">
+                    <h1>Liyue</h1>
                     {isEditingThis ? (
                         <div className="edit-wrapper">
                             <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
@@ -59,4 +59,4 @@ const Mondstadt = ({ isEditing }) => {
     );
 }
 
-export default Mondstadt;
+export default Liyue;

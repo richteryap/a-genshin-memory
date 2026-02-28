@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import useRegionData from '../PageAssist/useRegionData';
-import './Natlan.css';
+import useRegionData from '../hooks/useRegionData';
+import '../style/Nod_Krai.css';
 
-const Natlan = ({ isEditing }) => {
-    const { description, saveDescription, isSaving } = useRegionData("natlan");
+const Nod_Krai = ({ isEditing }) => {
+    const { description, saveDescription, isSaving } = useRegionData("nod-krai");
 
     const [tempDescription, setTempDescription] = useState("");
     const [isEditingThis, setIsEditingThis] = useState(false);
@@ -26,11 +26,11 @@ const Natlan = ({ isEditing }) => {
     };
 
     return (
-        <div className="natlan-container">
-            <div className="natlan-content">
-                <div className="natlan-image"></div>
-                <div className="natlan-text">
-                    <h1>Natlan</h1>
+        <div className="nod-krai-container">
+            <div className="nod-krai-content">
+                <div className="nod-krai-image"></div>
+                <div className="nod-krai-text">
+                    <h1>Nod-Krai</h1>
                     {isEditingThis ? (
                         <div className="edit-wrapper">
                             <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
@@ -59,4 +59,4 @@ const Natlan = ({ isEditing }) => {
     );
 }
 
-export default Natlan;
+export default Nod_Krai;

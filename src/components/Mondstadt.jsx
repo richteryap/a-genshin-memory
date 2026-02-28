@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import useRegionData from '../PageAssist/useRegionData';
-import './Nod_Krai.css';
+import useRegionData from '../hooks/useRegionData';
+import '../style/Mondstadt.css';
 
-const Nod_Krai = ({ isEditing }) => {
-    const { description, saveDescription, isSaving } = useRegionData("nod-krai");
+const Mondstadt = ({ isEditing }) => {
+    const { description, saveDescription, isSaving } = useRegionData("mondstadt");
 
     const [tempDescription, setTempDescription] = useState("");
     const [isEditingThis, setIsEditingThis] = useState(false);
@@ -26,11 +26,11 @@ const Nod_Krai = ({ isEditing }) => {
     };
 
     return (
-        <div className="nod-krai-container">
-            <div className="nod-krai-content">
-                <div className="nod-krai-image"></div>
-                <div className="nod-krai-text">
-                    <h1>Nod-Krai</h1>
+        <div className="mondstadt-container">
+            <div className="mondstadt-content">
+                <div className="mondstadt-image"></div>
+                <div className="mondstadt-text">
+                    <h1>Mondstadt</h1>
                     {isEditingThis ? (
                         <div className="edit-wrapper">
                             <textarea className="edit-description" placeholder="description" value={tempDescription} onChange={(e) => setTempDescription(e.target.value)}/>
@@ -59,4 +59,4 @@ const Nod_Krai = ({ isEditing }) => {
     );
 }
 
-export default Nod_Krai;
+export default Mondstadt;

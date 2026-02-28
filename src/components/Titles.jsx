@@ -1,4 +1,4 @@
-import './Titles.css';
+import '../style/Titles.css';
 
 const Titles = () => {
     return (

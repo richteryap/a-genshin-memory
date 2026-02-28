@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import ScrollToHash from './components/PageAssist/ScrollToHash.jsx';
-import useScrollSpy from "./components/PageAssist/useScrollSpy.js";
-import './App.css'
+import ScrollToHash from './components/ScrollToHash.jsx';
+import useScrollSpy from "./hooks/useScrollSpy.js";
 import Home from './components/Home.jsx'
 import Nav from './components/Nav.jsx'
 import Titles from './components/Titles.jsx'
 import Travels from './components/Travels.jsx'
 import Contact from './components/Contact.jsx';
-import Teyvat from './components/ProjectContent/Teyvat.jsx';
 import Footer from './components/Footer.jsx';
-import AdminLogin from './components/AdminLogin.jsx';
+import AdminLogin from './pages/AdminLogin.jsx';
+import Teyvat from './pages/Teyvat.jsx';
+import './App.css'
 
 function App() {
   const sectionIds = ['home', 'titles', 'travels'];
