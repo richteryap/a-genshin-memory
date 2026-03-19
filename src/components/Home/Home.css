@@ -4,53 +4,41 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 2rem 5rem;
   overflow-x: hidden;
-  
-  /* These rules make the background cover the whole screen beautifully */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Creates a slight parallax effect when scrolling */
 }
 
-/* Updated for 3-Column Layout */
 .home-content.split-layout {
   border-radius: 20px;
-  padding: 3rem;
   
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem; /* Space between columns */
+  gap: 1rem;
   
   width: 100%;
-  max-width: 1100px; /* Made wider to fit the 3 columns */
+  max-width: 1400px;
 }
 
-/* The New Glassmorphism Card */
 .home-content.split-layout.glass-card {
   border-radius: 20px;
-  padding: 3rem;
   
-  /* Glass Effect */
-  background: rgba(20, 20, 20, 0.4); /* Very transparent dark background */
-  backdrop-filter: blur(16px); /* Frosted glass blur */
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle glowing edge */
+  background: rgba(20, 20, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+
+  background-size: cover;
+  background-position: center;  
   
-  /* Layout */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
   width: 100%;
-  max-width: 1100px; 
+  max-width: 1400px; 
   transition: all 0.3s ease;
   
-  /* Ensure text is readable on the dark glass */
   color: #f0f0f0; 
 }
 
@@ -95,12 +83,16 @@
   color: #ffffff; /* Forces the stat text to be pure white */
 }
 
-/* Because we moved the background, the image container just needs to center the avatar */
-.home-image {
+.stats-box.right-side p {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px;
+}
+
+.stats-box.right-side p img {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin: 0 4px 0 6px;
 }
 
 /* Ensure headings pop on the dark background */
@@ -111,11 +103,11 @@
 }
 
 .profile-avatar {
-  width: 140px; 
-  height: 140px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Adds a cool glow */
 }
 
 /* Mobile Responsiveness: Stacks the 3 columns vertically */
