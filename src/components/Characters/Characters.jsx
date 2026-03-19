@@ -1,25 +1,20 @@
 import React from 'react';
-import charactersData from '../../utils/characters.json'; // Adjust path if needed!
+import charactersData from '../../utils/characters.json';
 import './Characters.css';
 
-const Characters = ({ avatarList }) => {
-  // If the user hides their character details in-game, this array will be empty/undefined
+const Characters = ({ playerData, avatarList }) => {
   if (!avatarList || avatarList.length === 0) return null;
 
   return (
-    <div className="characters-container glass-card">
-      <h2>Showcased Characters</h2>
+    <div className="characters-container glass-card" style={{ backgroundImage: playerData.resolvedNamecardUrl ? `linear-gradient(to top, rgba(15, 15, 15, 1), rgba(15, 15, 15, 0.7)), url('${playerData.resolvedNamecardUrl}')` : 'var(--bg-color)' }}>
+      <h2>Characters</h2>
       <div className="characters-grid">
         {avatarList.map((avatar, index) => {
-          // 1. Look up the character in our local database using their ID
           const charInfo = charactersData[avatar.avatarId];
-          if (!charInfo) return null; // Skip if we somehow don't have the character
 
-          // 2. Grab the Side Icon and format it to be the high-res square portrait
           const iconPath = charInfo.SideIconName.replace('_Side', '');
           const imageUrl = `https://enka.network${iconPath}`;
           
-          // 3. Determine if they are 5-star or 4-star to color-code their background
           const is5Star = charInfo.QualityType === "QUALITY_ORANGE" || charInfo.QualityType === "QUALITY_ORANGE_SP";
           const rarityClass = is5Star ? "star-5" : "star-4";
 

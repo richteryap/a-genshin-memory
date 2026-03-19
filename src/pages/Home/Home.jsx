@@ -68,10 +68,10 @@ const Home = () => {
           </section>
           <div className="showcases">
             <section id="characters">
-              <Characters avatarList={playerData.showAvatarInfoList} />
+              <Characters playerData={playerData} avatarList={playerData.showAvatarInfoList} />
             </section>
             <section id="namecards">
-              <Namecards namecardList={playerData.showNameCardIdList} />
+              <Namecards playerData={playerData} namecardList={playerData.showNameCardIdList} />
             </section>
           </div>
         </>
