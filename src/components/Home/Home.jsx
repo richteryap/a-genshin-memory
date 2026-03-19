@@ -3,7 +3,7 @@ import { useGenshinProfile } from '../../hooks/useGenshinProfile';
 import './Home.css';
 
 const Home = () => {
-  const targetUid = "1817359964";
+  const targetUid = "893213154";
   const { playerData, loading, error } = useGenshinProfile(targetUid);
 
   if (loading) return <div className="home-container">Loading Teyvat data...</div>;

@@ -18,7 +18,11 @@ export const useGenshinProfile = (uid) => {
 
       try {
         // fetch the player profile
-        const response = await fetch(`/api/getGenshinData?uid=${uid}`);
+        const fetchUrl = import.meta.env.DEV 
+          ? `https://enka.network/api/uid/${uid}` // Local dev: Hit Enka directly
+          : `/api/getGenshinData?uid=${uid}`;     // Production: Hit the Vercel Serverless Function
+
+        const response = await fetch(fetchUrl);
         
         if (!response.ok) {
           throw new Error('Failed to fetch profile. Is the UID correct?');
