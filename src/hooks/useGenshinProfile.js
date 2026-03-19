@@ -17,8 +17,8 @@ export const useGenshinProfile = (uid) => {
       setError(null);
 
       try {
-        // We only need to fetch the player profile now!
-        const response = await fetch(`/api/enka/uid/${uid}`);
+        // fetch the player profile
+        const response = await fetch(`/api/getGenshinData?uid=${uid}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch profile. Is the UID correct?');
@@ -27,7 +27,7 @@ export const useGenshinProfile = (uid) => {
         const data = await response.json();
         const profile = data.playerInfo;
 
-        // Use our lightning-fast local dictionaries
+        // Use local dictionaries
         profile.resolvedAvatarUrl = getAvatarUrl(profile.profilePicture);
         profile.resolvedNamecardUrl = getNamecardUrl(profile.nameCardId);
 
