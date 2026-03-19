@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGenshinProfile } from '../../hooks/useGenshinProfile';
 import './Home.css';
 
@@ -8,7 +8,45 @@ const THEATER_ACTS = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYA
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
   const [targetUid, setTargetUid] = useState("");
+
+  const [savedAccounts, setSavedAccounts] = useState([]);
+
   const { playerData, loading, error } = useGenshinProfile(targetUid);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('genshinFavorites');
+    if (saved) {
+      setSavedAccounts(JSON.parse(saved));
+    }
+  }, []);
+
+  const saveCurrentAccount = () => {
+    if (!playerData) return;
+    
+    const newSave = {
+      uid: targetUid,
+      nickname: playerData.nickname,
+      avatar: playerData.resolvedAvatarUrl
+    };
+
+    const isAlreadySaved = savedAccounts.some(acc => acc.uid === targetUid);
+    
+    if (!isAlreadySaved) {
+      const updatedSaves = [...savedAccounts, newSave];
+      setSavedAccounts(updatedSaves);
+      localStorage.setItem('genshinFavorites', JSON.stringify(updatedSaves));
+    }
+  };
+
+  const deleteSavedAccount = (e, uidToDelete) => {
+    e.stopPropagation(); // Stops the click from triggering the badge's search!
+    
+    // Filter out the account we want to delete
+    const updatedSaves = savedAccounts.filter(acc => acc.uid !== uidToDelete);
+    
+    setSavedAccounts(updatedSaves);
+    localStorage.setItem('genshinFavorites', JSON.stringify(updatedSaves));
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -36,6 +74,36 @@ const Home = () => {
         />
         <button type="submit" className="search-button">Search</button>
       </form>
+
+      <div className="saved-accounts-container">
+        {playerData && (
+          <button onClick={saveCurrentAccount} className="save-btn">
+            Save Account
+          </button>
+        )}
+        
+        <div className="favorites-list">
+          {savedAccounts.map((acc) => (
+            <div 
+              key={acc.uid} 
+              className="favorite-badge"
+              onClick={() => setTargetUid(acc.uid)}
+            >
+              <img src={acc.avatar || 'https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png'} alt="avatar" />
+              <span>{acc.nickname}</span>
+              
+              {/* NEW: The X Mark Button */}
+              <button 
+                className="delete-badge-btn"
+                onClick={(e) => deleteSavedAccount(e, acc.uid)}
+                title="Remove from favorites"
+              >
+                &times;
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {loading && <div className="status-message glass-card">Loading Teyvat data...</div>}
       {error && <div className="status-message glass-card">Error: {error}</div>}
