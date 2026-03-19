@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import ScrollToHash from './components/ScrollToHash.jsx';
 import useScrollSpy from "./hooks/useScrollSpy.js";
-import Home from './components/Home/Home.jsx'
+import Home from './pages/Home/Home.jsx'
 import Nav from './components/Nav/Nav.jsx'
 import Titles from './components/Titles/Titles.jsx'
 import Travels from './components/Travels/Travels.jsx'
