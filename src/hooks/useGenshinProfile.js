@@ -19,8 +19,8 @@ export const useGenshinProfile = (uid) => {
       try {
         // fetch the player profile
         const fetchUrl = import.meta.env.DEV 
-          ? `https://enka.network/api/uid/${uid}` // Local dev: Hit Enka directly
-          : `/api/getGenshinData?uid=${uid}`;     // Production: Hit the Vercel Serverless Function
+          ? `/api/enka/uid/${uid}`               // Local dev: Hit Vite's local proxy!
+          : `/api/getGenshinData?uid=${uid}`;    // Production: Hit Vercel's Serverless Function!
 
         const response = await fetch(fetchUrl);
         
