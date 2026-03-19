@@ -145,6 +145,10 @@
   color: #ff4d4f;
 }
 
+.home-content.split-layout.glass-card {
+  position: relative;
+}
+
 .home-content.split-layout {
   border-radius: 10px;
   
@@ -178,6 +182,31 @@
   transition: all 0.3s ease;
   
   color: #f0f0f0; 
+}
+
+.favorite-star-toggle {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  padding: 0;
+  line-height: 1;
+}
+
+.favorite-star-toggle:hover {
+  transform: scale(1.15);
+  color: #ffd700;
+}
+
+.favorite-star-toggle.active {
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
 }
 
 .layout-left {

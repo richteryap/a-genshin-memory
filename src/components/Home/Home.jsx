@@ -8,7 +8,6 @@ const THEATER_ACTS = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYA
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
   const [targetUid, setTargetUid] = useState("");
-
   const [savedAccounts, setSavedAccounts] = useState([]);
 
   const { playerData, loading, error } = useGenshinProfile(targetUid);
@@ -38,10 +37,32 @@ const Home = () => {
     }
   };
 
-  const deleteSavedAccount = (e, uidToDelete) => {
-    e.stopPropagation(); // Stops the click from triggering the badge's search!
+  const toggleFavorite = () => {
+    if (!playerData) return;
     
-    // Filter out the account we want to delete
+    const existingAccIndex = savedAccounts.findIndex(acc => acc.uid === targetUid);
+    let updatedSaves;
+
+    if (existingAccIndex !== -1) {
+      updatedSaves = [...savedAccounts];
+      updatedSaves[existingAccIndex].isFavorite = !updatedSaves[existingAccIndex].isFavorite;
+    } else {
+      const newSave = {
+        uid: targetUid,
+        nickname: playerData.nickname,
+        avatar: playerData.resolvedAvatarUrl,
+        isFavorite: true
+      };
+      updatedSaves = [...savedAccounts, newSave];
+    }
+
+    setSavedAccounts(updatedSaves);
+    localStorage.setItem('genshinFavorites', JSON.stringify(updatedSaves));
+  };
+
+  const deleteSavedAccount = (e, uidToDelete) => {
+    e.stopPropagation();
+    
     const updatedSaves = savedAccounts.filter(acc => acc.uid !== uidToDelete);
     
     setSavedAccounts(updatedSaves);
@@ -59,57 +80,49 @@ const Home = () => {
     }
   };
 
+  const isCurrentFavorite = savedAccounts.find(acc => acc.uid === targetUid)?.isFavorite || false;
+
+  const sortedAccounts = [...savedAccounts].sort((a, b) => {
+    if (a.isFavorite && !b.isFavorite) return -1;
+    if (!a.isFavorite && b.isFavorite) return 1;
+    return 0;
+  });
+
   console.log("Player Data:", playerData);
 
   return (
     <div className="home-container">
-
       <form className="search-bar-container" onSubmit={handleSearch}>
-        <input 
-          type="number" 
-          placeholder="Enter 9-Digit UID..." 
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-          className="uid-input"
-        />
+        <input type="number" placeholder="Enter UID..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)} className="uid-input"/>
         <button type="submit" className="search-button">Search</button>
       </form>
-
       <div className="saved-accounts-container">
         {playerData && (
           <button onClick={saveCurrentAccount} className="save-btn">
             Save Account
           </button>
         )}
-        
         <div className="favorites-list">
-          {savedAccounts.map((acc) => (
-            <div 
-              key={acc.uid} 
-              className="favorite-badge"
-              onClick={() => setTargetUid(acc.uid)}
-            >
+          {sortedAccounts.map((acc) => (
+            <div key={acc.uid} className="favorite-badge" onClick={() => setTargetUid(acc.uid)}>
               <img src={acc.avatar || 'https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png'} alt="avatar" />
-              <span>{acc.nickname}</span>
-              
-              {/* NEW: The X Mark Button */}
-              <button 
-                className="delete-badge-btn"
-                onClick={(e) => deleteSavedAccount(e, acc.uid)}
-                title="Remove from favorites"
-              >
+              <span style={{ color: acc.isFavorite ? '#ffd700' : 'inherit' }}>
+                {acc.nickname}
+              </span>
+              <button className="delete-badge-btn" onClick={(e) => deleteSavedAccount(e, acc.uid)} title="Remove from history">
                 &times;
               </button>
             </div>
           ))}
         </div>
       </div>
-
       {loading && <div className="status-message glass-card">Loading Teyvat data...</div>}
       {error && <div className="status-message glass-card">Error: {error}</div>}
-
       {!loading && !error && playerData && (
         <div className="home-content split-layout glass-card" style={{ backgroundImage: playerData.resolvedNamecardUrl ? `linear-gradient(to right, rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.6)), url('${playerData.resolvedNamecardUrl}')` : 'var(--bg-color)' }}>
+          <button className={`favorite-star-toggle ${isCurrentFavorite ? 'active' : ''}`} onClick={toggleFavorite} title={isCurrentFavorite ? "Remove from Favorites" : "Add to Favorites"}>
+            {isCurrentFavorite ? '★' : '☆'}
+          </button>
           <div className="layout-left">
             <h1>{playerData.nickname}</h1>
             <p className="signature"><em>"{playerData.signature || "No signature set."}"</em></p>
