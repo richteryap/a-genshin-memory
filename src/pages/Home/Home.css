@@ -150,3 +150,9 @@
   display: flex;
   justify-content: center;
 }
+
+.showcases {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

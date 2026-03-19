@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useGenshinProfile } from '../../hooks/useGenshinProfile.js'
 import { useFavorites } from '../../hooks/useFavorites.js';
 import Profiles from '../../components/Profiles/Profiles.jsx';
+import Characters from '../../components/Characters/Characters.jsx';
+import Namecards from '../../components/Namecards/Namecards.jsx';
 import './Home.css';
 
 const Home = () => {
@@ -60,9 +62,19 @@ const Home = () => {
       {loading && <div className="status-message glass-card">Loading...</div>}
       {error && <div className="status-message glass-card">Error: {error}</div>}
       {!loading && !error && playerData && (
-        <section id="profiles">
-          <Profiles playerData={playerData} isCurrentFavorite={isCurrentFavorite} toggleFavorite={toggleFavorite} />
-        </section>
+        <>
+          <section id="profiles">
+            <Profiles playerData={playerData} isCurrentFavorite={isCurrentFavorite} toggleFavorite={toggleFavorite} />
+          </section>
+          <div className="showcases">
+            <section id="characters">
+              <Characters avatarList={playerData.showAvatarInfoList} />
+            </section>
+            <section id="namecards">
+              <Namecards namecardList={playerData.showNameCardIdList} />
+            </section>
+          </div>
+        </>
       )}
     </div>
   );
