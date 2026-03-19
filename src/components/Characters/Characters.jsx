@@ -11,15 +11,18 @@ const Characters = ({ playerData, avatarList }) => {
       <div className="characters-grid">
         {avatarList.map((avatar, index) => {
           const charInfo = charactersData[avatar.avatarId];
+          if (!charInfo) return null;
 
           const iconPath = charInfo.SideIconName.replace('_Side', '');
           const imageUrl = `https://enka.network${iconPath}`;
           
           const is5Star = charInfo.QualityType === "QUALITY_ORANGE" || charInfo.QualityType === "QUALITY_ORANGE_SP";
-          const rarityClass = is5Star ? "star-5" : "star-4";
+          const borderClass = is5Star ? "border-5star" : "border-4star";
+
+          const elementClass = `element-${charInfo.Element}`;
 
           return (
-            <div key={index} className={`character-card ${rarityClass}`}>
+            <div key={index} className={`character-card ${borderClass} ${elementClass}`}>
               <img src={imageUrl} alt="Character Portrait" />
               <div className="level-badge">Lv. {avatar.level}</div>
             </div>

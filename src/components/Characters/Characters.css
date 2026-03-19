@@ -58,13 +58,42 @@
   object-position: center 10%; 
 }
 
-/* Rarity Background Gradients */
-.star-5 {
-  background: linear-gradient(135deg, #d28e5d, #e6b876);
+/* Rarity Borders */
+.border-5star {
+  border-color: #e6b876 !important; /* Gold/Orange */
+  box-shadow: 0 0 8px rgba(230, 184, 118, 0.3);
 }
 
-.star-4 {
-  background: linear-gradient(135deg, #785a9c, #a882d2);
+.border-4star {
+  border-color: #a882d2 !important; /* Purple */
+  box-shadow: 0 0 8px rgba(168, 130, 210, 0.3);
+}
+
+/* Elemental Background Gradients */
+.element-Fire { 
+  background: linear-gradient(135deg, #c44038, #8c2621); 
+}
+.element-Water { 
+  background: linear-gradient(135deg, #4b85cf, #295f9e); 
+}
+.element-Wind { 
+  background: linear-gradient(135deg, #5bc2a6, #32947a); 
+}
+.element-Electric { 
+  background: linear-gradient(135deg, #925ec2, #663791); 
+}
+.element-Grass { 
+  background: linear-gradient(135deg, #8cc441, #5e9122); 
+}
+.element-Ice { 
+  background: linear-gradient(135deg, #8ed9e8, #56a2b3); 
+}
+.element-Rock { 
+  background: linear-gradient(135deg, #d4af44, #a18023); 
+}
+.element-None { 
+  /* For the Traveler before resonating */
+  background: linear-gradient(135deg, #9e9e9e, #6b6b6b); 
 }
 
 /* Level Overlay */
