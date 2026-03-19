@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useGenshinProfile } from '../../hooks/useGenshinProfile';
 import './Home.css';
 
@@ -6,57 +6,82 @@ const ABYSS_STARS = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAA
 const THEATER_ACTS = "data:image/png;base64,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";
 
 const Home = () => {
-  const targetUid = "1817359964";
+  const [searchInput, setSearchInput] = useState("");
+  const [targetUid, setTargetUid] = useState("");
   const { playerData, loading, error } = useGenshinProfile(targetUid);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const cleanInput = searchInput.trim();
+    
+    if (cleanInput.length > 0 && cleanInput.length <= 10) {
+      setTargetUid(cleanInput);
+    } else {
+      alert("Please enter a valid Genshin Impact UID (up to 10 digits).");
+    }
+  };
 
   console.log("Player Data:", playerData);
 
-  if (loading) return <div className="home-container">Loading Teyvat data...</div>;
-  if (error) return <div className="home-container">Error: {error}</div>;
-  if (!playerData) return null;
-
   return (
     <div className="home-container">
-      <div className="home-content split-layout glass-card" style={{ backgroundImage: playerData.resolvedNamecardUrl ? `linear-gradient(to right, rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.6)), url('${playerData.resolvedNamecardUrl}')` : 'var(--bg-color)' }}>
-        <div className="layout-left">
-          <h1>{playerData.nickname}</h1>
-          <p className="signature"><em>"{playerData.signature || "No signature set."}"</em></p>
-          <div className="stats-box left-side">
-            <p><strong>Adventure Rank:</strong> {playerData.level}</p>
-            <p><strong>World Level:</strong> {playerData.worldLevel}</p>
-            <p><strong>Achievements:</strong> {playerData.finishAchievementNum}</p>
-            <p><strong>Fetter Count:</strong> {playerData.fetterCount}</p>
+
+      <form className="search-bar-container" onSubmit={handleSearch}>
+        <input 
+          type="number" 
+          placeholder="Enter 9-Digit UID..." 
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          className="uid-input"
+        />
+        <button type="submit" className="search-button">Search</button>
+      </form>
+
+      {loading && <div className="status-message glass-card">Loading Teyvat data...</div>}
+      {error && <div className="status-message glass-card">Error: {error}</div>}
+
+      {!loading && !error && playerData && (
+        <div className="home-content split-layout glass-card" style={{ backgroundImage: playerData.resolvedNamecardUrl ? `linear-gradient(to right, rgba(15, 15, 15, 0.9), rgba(15, 15, 15, 0.6)), url('${playerData.resolvedNamecardUrl}')` : 'var(--bg-color)' }}>
+          <div className="layout-left">
+            <h1>{playerData.nickname}</h1>
+            <p className="signature"><em>"{playerData.signature || "No signature set."}"</em></p>
+            <div className="stats-box left-side">
+              <p><strong>Adventure Rank:</strong> {playerData.level}</p>
+              <p><strong>World Level:</strong> {playerData.worldLevel}</p>
+              <p><strong>Achievements:</strong> {playerData.finishAchievementNum}</p>
+              <p><strong>Maximum Friendship Count:</strong> {playerData.fetterCount}</p>
+            </div>
+          </div>
+          <img className="profile-avatar" src={playerData.resolvedAvatarUrl} alt={`${playerData.nickname}'s Profile`} onError={(e) => { e.target.src = 'https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png' }}/>
+          <div className="layout-right">
+            <h1>Endgames</h1>
+            <p className="signature" style={{ color: 'transparent', userSelect: 'none' }}>Spacer</p>
+            <div className="stats-box right-side">
+              {playerData.towerFloorIndex !== undefined && (
+                <p>
+                  <strong>Spiral Abyss:</strong>
+                  <img src={ABYSS_STARS} alt="Abyss Stars" />
+                  <strong>{playerData.towerStarIndex || 0}</strong>
+                </p>
+              )}
+              {playerData.theaterActIndex !== undefined && (
+                <p>
+                  <strong>Imaginarium Theater:</strong>
+                  <img src={THEATER_ACTS} alt="Theater Acts"/>
+                  <strong>{playerData.theaterStarIndex}/{playerData.theaterActIndex}</strong>
+                </p>
+              )}
+              {playerData.stygianSeconds !== undefined && (
+                <p>
+                  <strong>Stygian Onslaught:</strong>
+                  <img src={`https://enka.network/ui/UI_LeyLineChallenge_Medal_${playerData.stygianIndex}.png`} alt={`Difficulty Tier ${playerData.stygianIndex}`}/>
+                  <strong>{playerData.stygianSeconds}s</strong>
+                </p>
+              )}
+            </div>
           </div>
         </div>
-        <img className="profile-avatar" src={playerData.resolvedAvatarUrl} alt={`${playerData.nickname}'s Profile`} onError={(e) => { e.target.src = 'https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png' }}/>
-        <div className="layout-right">
-          <h1>Endgames</h1>
-          <p className="signature" style={{ color: 'transparent', userSelect: 'none' }}>Spacer</p>
-          <div className="stats-box right-side">
-            {playerData.towerFloorIndex !== undefined && (
-              <p>
-                <strong>Spiral Abyss:</strong>
-                <img src={ABYSS_STARS} alt="Abyss Stars" />
-                <strong>{playerData.towerStarIndex || 0}</strong>
-              </p>
-            )}
-            {playerData.theaterActIndex !== undefined && (
-              <p>
-                <strong>Imaginarium Theater:</strong>
-                <img src={THEATER_ACTS} alt="Theater Acts"/>
-                <strong>{playerData.theaterStarIndex}/{playerData.theaterActIndex}</strong>
-              </p>
-            )}
-            {playerData.stygianSeconds !== undefined && (
-              <p>
-                <strong>Stygian Onslaught:</strong>
-                <img src={`https://enka.network/ui/UI_LeyLineChallenge_Medal_${playerData.stygianIndex}.png`} alt={`Difficulty Tier ${playerData.stygianIndex}`}/>
-                <strong>{playerData.stygianSeconds}s</strong>
-              </p>
-            )}
-          </div>
-        </div>
-      </div> 
+      )}
     </div>
   );
 }
