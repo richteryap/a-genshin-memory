@@ -6,10 +6,17 @@ const useScrollSpy = (sectionIds) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const newHash = `#${entry.target.id}`;
+            const currentHash = window.location.hash;
+
+            // Grab everything after the "?"
+            const hashQuery = currentHash.includes('?') ? currentHash.substring(currentHash.indexOf('?')) : '';
             
-            if (window.location.hash !== newHash) {
-                window.history.replaceState(null, null, newHash);
+            // Build the new base hash and combine it with the existing query parameters
+            const newHashBase = `#${entry.target.id}`;
+            const newHashFull = newHashBase + hashQuery;
+            
+            if (!currentHash.startsWith(newHashBase)) {
+                window.history.replaceState(null, null, newHashFull);
             }
           }
         });

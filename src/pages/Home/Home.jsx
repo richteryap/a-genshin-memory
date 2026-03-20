@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useHashUid } from '../../hooks/useHashUid.js';
 import { useGenshinProfile } from '../../hooks/useGenshinProfile.js'
 import { useFavorites } from '../../hooks/useFavorites.js';
 import Profiles from '../../components/Profiles/Profiles.jsx';
@@ -12,6 +13,8 @@ const Home = () => {
   const [targetUid, setTargetUid] = useState("");
   const [selectedCharacter, setSelectedCharacter] = useState(null);
 
+  const [urlUid, setUrlUid] = useHashUid();
+
   const { playerData, loading, error } = useGenshinProfile(targetUid);
 
   const { 
@@ -22,12 +25,25 @@ const Home = () => {
     deleteSavedAccount 
   } = useFavorites(targetUid, playerData);
 
+  // Auto-fetch if the URL has a UID
+  useEffect(() => {
+    if (urlUid && urlUid !== targetUid) {
+      setTargetUid(urlUid);
+      setSearchInput(urlUid);
+    }
+  }, [urlUid]);
+
+  const updateUidAndUrl = (newUid) => {
+    setTargetUid(newUid);
+    setUrlUid(newUid);
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     const cleanInput = searchInput.trim();
     
     if (cleanInput.length > 0 && cleanInput.length <= 10) {
-      setTargetUid(cleanInput);
+      updateUidAndUrl(cleanInput);
     } else {
       alert("Please enter a valid Genshin Impact UID.");
     }
@@ -49,7 +65,7 @@ const Home = () => {
         )}
         <div className="favorites-list">
           {sortedAccounts.map((acc) => (
-            <div key={acc.uid} className="favorite-badge" onClick={() => setTargetUid(acc.uid)}>
+            <div key={acc.uid} className="favorite-badge" onClick={() => updateUidAndUrl(acc.uid)}>
               <img src={acc.avatar || 'https://enka.network/ui/UI_AvatarIcon_PlayerBoy.png'} alt="avatar" />
               <span style={{ color: acc.isFavorite ? '#ffd700' : 'inherit' }}>
                 {acc.nickname}
