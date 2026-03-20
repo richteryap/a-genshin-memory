@@ -82,12 +82,14 @@ const CharacterModal = ({ character, onClose }) => {
 
   // Calculate Highest DMG Bonus
   let highestDmg = { label: "DMG Bonus", value: 0 };
-  Object.keys(dmgProperties).forEach(id => {
-    const val = character.fightPropMap[id] || 0;
-    if (val > highestDmg.value) {
-      highestDmg = { label: dmgProperties[id], value: val };
-    }
-  });
+  if (character.fightPropMap) {
+    Object.keys(dmgProperties).forEach(id => {
+      const val = character.fightPropMap[id] || 0;
+      if (val > highestDmg.value) {
+        highestDmg = { label: dmgProperties[id], value: val };
+      }
+    });
+  }
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -145,42 +147,44 @@ const CharacterModal = ({ character, onClose }) => {
               </div>
             </div>
             <div className="modal-right">
-              <div className="detail-panel stats-panel glass-panel">
-                <div className="stat-row">
-                  <span className="stat-label">Max HP</span>
-                  <span className="stat-val">{Math.round(character.fightPropMap[2000]).toLocaleString()}</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">ATK</span>
-                  <span className="stat-val">{Math.round(character.fightPropMap[2001]).toLocaleString()}</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">DEF</span>
-                  <span className="stat-val">{Math.round(character.fightPropMap[2002]).toLocaleString()}</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">Elemental Mastery</span>
-                  <span className="stat-val">{Math.round(character.fightPropMap[28])}</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">CRIT Rate</span>
-                  <span className="stat-val">{(character.fightPropMap[20] * 100).toFixed(1)}%</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">CRIT DMG</span>
-                  <span className="stat-val">{(character.fightPropMap[22] * 100).toFixed(1)}%</span>
-                </div>
-                <div className="stat-row">
-                  <span className="stat-label">Energy Recharge</span>
-                  <span className="stat-val">{(character.fightPropMap[23] * 100).toFixed(1)}%</span>
-                </div>
-                {highestDmg.value > 0 && (
+              {character.fightPropMap && (
+                <div className="detail-panel stats-panel glass-panel">
                   <div className="stat-row">
-                    <span className="stat-label">{highestDmg.label}</span> 
-                    <span className="stat-val">{(highestDmg.value * 100).toFixed(1)}%</span>
+                    <span className="stat-label">Max HP</span>
+                    <span className="stat-val">{Math.round(character.fightPropMap[2000]).toLocaleString()}</span>
                   </div>
-                )}
-              </div>
+                  <div className="stat-row">
+                    <span className="stat-label">ATK</span>
+                    <span className="stat-val">{Math.round(character.fightPropMap[2001]).toLocaleString()}</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">DEF</span>
+                    <span className="stat-val">{Math.round(character.fightPropMap[2002]).toLocaleString()}</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">Elemental Mastery</span>
+                    <span className="stat-val">{Math.round(character.fightPropMap[28])}</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">CRIT Rate</span>
+                    <span className="stat-val">{(character.fightPropMap[20] * 100).toFixed(1)}%</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">CRIT DMG</span>
+                    <span className="stat-val">{(character.fightPropMap[22] * 100).toFixed(1)}%</span>
+                  </div>
+                  <div className="stat-row">
+                    <span className="stat-label">Energy Recharge</span>
+                    <span className="stat-val">{(character.fightPropMap[23] * 100).toFixed(1)}%</span>
+                  </div>
+                  {highestDmg.value > 0 && (
+                    <div className="stat-row">
+                      <span className="stat-label">{highestDmg.label}</span> 
+                      <span className="stat-val">{(highestDmg.value * 100).toFixed(1)}%</span>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
