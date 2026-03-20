@@ -8,7 +8,7 @@ import Footer from './components/Footer/Footer.jsx';
 import './App.css'
 
 function App() {
-  const sectionIds = ['profile', 'travels'];
+  const sectionIds = ['profile'];
   useScrollSpy(sectionIds);
   return (
     <>
