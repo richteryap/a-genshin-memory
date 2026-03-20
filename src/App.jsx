@@ -3,16 +3,12 @@ import ScrollToHash from './components/ScrollToHash.jsx';
 import useScrollSpy from "./hooks/useScrollSpy.js";
 import Home from './pages/Home/Home.jsx'
 import Nav from './components/Nav/Nav.jsx'
-import Titles from './components/Titles/Titles.jsx'
-import Travels from './components/Travels/Travels.jsx'
 import Contact from './components/Contact/Contact.jsx';
 import Footer from './components/Footer/Footer.jsx';
-import AdminLogin from './pages/AdminLogin/AdminLogin.jsx';
-import Teyvat from './pages/Teyvat/Teyvat.jsx';
 import './App.css'
 
 function App() {
-  const sectionIds = ['profile', 'titles', 'travels'];
+  const sectionIds = ['profile', 'travels'];
   useScrollSpy(sectionIds);
   return (
     <>
@@ -24,17 +20,9 @@ function App() {
             <section id="profile">
               <Home />
             </section>
-            <section id="titles">
-              <Titles />
-            </section>
-            <section id="travels">
-              <Travels />
-            </section>
           </div>
         } />
         <Route path="/contact/" element={<Contact />} />
-        <Route path="/teyvat/" element={<Teyvat />} />
-        <Route path="/admin-login/" element={<AdminLogin />} />
       </Routes>
       <Footer />
     </>
