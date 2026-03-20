@@ -12,7 +12,7 @@ import Teyvat from './pages/Teyvat/Teyvat.jsx';
 import './App.css'
 
 function App() {
-  const sectionIds = ['home', 'titles', 'travels'];
+  const sectionIds = ['profile', 'titles', 'travels'];
   useScrollSpy(sectionIds);
   return (
     <>
@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <div className="app-body">
-            <section id="home">
+            <section id="profile">
               <Home />
             </section>
             <section id="titles">
