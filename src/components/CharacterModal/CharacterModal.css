@@ -55,6 +55,12 @@
   -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0.1) 100%);
 }
 
+.modal-background-image.traveler-pfp-fix {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .hidden-details-warning {
   padding: 2rem;
   background: rgba(255, 0, 0, 0.1);

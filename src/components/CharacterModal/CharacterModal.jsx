@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import charactersData from '../../utils/characters.json';
 import masterLocales from '../../utils/locales.json';
-import { getStatName, formatStat } from '../../utils/genshinUtils';
+import { getStatName, formatStat, getTravelerElement } from '../../utils/genshinUtils';
 import './CharacterModal.css';
 
 const locales = masterLocales.en;
@@ -18,7 +18,7 @@ const CharacterModal = ({ character, onClose }) => {
     : `https://enka.network/ui/UI_Gacha_AvatarImg_${internalName}.png`;
 
   const namecardUrl = (internalName === 'PlayerBoy' || internalName === 'PlayerGirl')
-    ? null
+    ? `https://enka.network/ui/UI_NameCardPic_Ysxf4_P.png`
     : `https://enka.network/ui/UI_NameCardPic_${internalName}_P.png`;
 
   const weapon = character.equipList?.find(equip => equip.flat.itemType === "ITEM_WEAPON");
@@ -69,17 +69,36 @@ const CharacterModal = ({ character, onClose }) => {
     });
   }
 
+  const isTraveler = internalName === 'PlayerBoy' || internalName === 'PlayerGirl';
+
+  const trueElement = (isTraveler && character.skillDepotId) 
+    ? getTravelerElement(character.skillDepotId) 
+    : charInfo.Element;
+
+  let displayName = internalName;
+  if (internalName === 'PlayerBoy') displayName = 'Aether';
+  if (internalName === 'PlayerGirl') displayName = 'Lumine';
+
+  const elementDisplayNames = {
+    "Wind": "Anemo", "Rock": "Geo", "Electric": "Electro", 
+    "Grass": "Dendro", "Water": "Hydro", "Fire": "Pyro", "Ice": "Cryo"
+  };
+
+  const travelerElementText = (isTraveler && trueElement !== "None") 
+    ? `${elementDisplayNames[trueElement]} ` 
+    : "";
+
   return (
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-background" style={{ backgroundImage: `url(${namecardUrl})` }}/>
-        <div className="modal-background-image" style={{ backgroundImage: `url(${splashArtUrl})` }}/>
+        <div className={`modal-background-image ${isTraveler ? 'traveler-pfp-fix' : ''}`} style={{ backgroundImage: `url(${splashArtUrl})` }}/>
         <div className="modal-ui">
           <div className="modal-body">
             <button className="close-modal-btn" onClick={onClose}>&times;</button>
             <div className="modal-left">
               <div className="modal-header">
-                <h1>{internalName}</h1>
+                <h1>{travelerElementText} {displayName}</h1>
                 <span className="char-level-badge">
                   Lv. {character.propMap?.[4001]?.val || character.level || "Unknown"}
                 </span>
