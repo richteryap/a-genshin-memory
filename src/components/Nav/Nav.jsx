@@ -34,7 +34,7 @@ const Nav = () => {
                 <span className="bar"></span>
             </button>
             <div className={`nav-content ${isMenuOpen ? 'active' : ''}`}>
-                <a href="/#home">Home</a>
+                <a href="/#profile">Profile</a>
                 <a href="/#titles">Titles</a>
                 <a href="/#travels">Travels</a>
                 <a href="/contact">Contact</a>
