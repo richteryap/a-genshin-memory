@@ -34,3 +34,20 @@ export const getNamecardUrl = (namecardId) => {
     const imagePath = namecards[namecardId].Icon.replace('.jpg', '.png');
     return `https://enka.network${imagePath}`;
 };
+
+export const getSplashArtUrl = (charInfo) => {
+    if (!charInfo) return null;
+
+    // Grab their internal name from the SideIcon string
+    const internalName = charInfo.SideIconName
+        .replace('/ui/UI_AvatarIcon_Side_', '')
+        .replace('.png', '');
+
+    // The Traveler is the only character without a Gacha splash art
+    if (internalName === 'PlayerBoy' || internalName === 'PlayerGirl') {
+        return `https://enka.network/ui/UI_AvatarIcon_${internalName}.png`; 
+    }
+
+    // Return the massive high-res splash art!
+    return `https://enka.network/ui/UI_Gacha_AvatarImg_${internalName}.png`;
+};

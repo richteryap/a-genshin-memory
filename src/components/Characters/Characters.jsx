@@ -2,7 +2,7 @@ import React from 'react';
 import charactersData from '../../utils/characters.json';
 import './Characters.css';
 
-const Characters = ({ playerData, avatarList }) => {
+const Characters = ({ playerData, avatarList, equipmentList, onCharacterClick }) => {
   if (!avatarList || avatarList.length === 0) return null;
 
   return (
@@ -18,11 +18,10 @@ const Characters = ({ playerData, avatarList }) => {
           
           const is5Star = charInfo.QualityType === "QUALITY_ORANGE" || charInfo.QualityType === "QUALITY_ORANGE_SP";
           const borderClass = is5Star ? "border-5star" : "border-4star";
-
           const elementClass = `element-${charInfo.Element}`;
 
           return (
-            <div key={index} className={`character-card ${borderClass} ${elementClass}`}>
+            <div key={index} className={`character-card ${borderClass} ${elementClass}`} onClick={() => {const detailedCharacter = equipmentList?.find(c => c.avatarId === avatar.avatarId); onCharacterClick(detailedCharacter || avatar);}}>
               <img src={imageUrl} alt="Character Portrait" />
               <div className="level-badge">Lv. {avatar.level}</div>
             </div>

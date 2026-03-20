@@ -4,11 +4,13 @@ import { useFavorites } from '../../hooks/useFavorites.js';
 import Profiles from '../../components/Profiles/Profiles.jsx';
 import Characters from '../../components/Characters/Characters.jsx';
 import Namecards from '../../components/Namecards/Namecards.jsx';
+import CharacterModal from '../../components/CharacterModal/CharacterModal.jsx';
 import './Home.css';
 
 const Home = () => {
   const [searchInput, setSearchInput] = useState("");
   const [targetUid, setTargetUid] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   const { playerData, loading, error } = useGenshinProfile(targetUid);
 
@@ -68,12 +70,18 @@ const Home = () => {
           </section>
           <div className="showcases">
             <section id="characters">
-              <Characters playerData={playerData} avatarList={playerData.showAvatarInfoList} />
+              <Characters playerData={playerData} avatarList={playerData.showAvatarInfoList} equipmentList={playerData.equipmentList} onCharacterClick={setSelectedCharacter} />
             </section>
             <section id="namecards">
               <Namecards playerData={playerData} namecardList={playerData.showNameCardIdList} />
             </section>
           </div>
+          {selectedCharacter && (
+            <CharacterModal 
+              character={selectedCharacter} 
+              onClose={() => setSelectedCharacter(null)} 
+            />
+          )}
         </>
       )}
     </div>

@@ -35,7 +35,7 @@ export const useGenshinProfile = (uid) => {
         profile.resolvedAvatarUrl = getAvatarUrl(profile.profilePicture);
         profile.resolvedNamecardUrl = getNamecardUrl(profile.nameCardId);
 
-        setPlayerData(profile);
+        setPlayerData({...profile, equipmentList: data.avatarInfoList});
       } catch (err) {
         setError(err.message);
       } finally {
