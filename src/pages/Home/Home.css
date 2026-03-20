@@ -71,7 +71,6 @@
   font-weight: bold;
 }
 
-/* Favorites UI */
 .saved-accounts-container {
   display: flex;
   flex-direction: column;

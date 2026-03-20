@@ -1,5 +1,5 @@
 .characters-container.glass-card {
-  margin-top: 2rem; /* Adds space between the profile card and this card */
+  margin-top: 2rem;
   padding: 2.5rem;
   width: 100%;
   max-width: 600px;
@@ -32,7 +32,6 @@
   justify-content: center;
 }
 
-/* Individual Character Cards */
 .character-card {
   position: relative;
   width: 110px;
@@ -54,11 +53,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Pushes the character slightly down so their face is centered */
   object-position: center 10%; 
 }
 
-/* Rarity Borders */
 .border-5star {
   border-color: #e6b876 !important; /* Gold/Orange */
   box-shadow: 0 0 8px rgba(230, 184, 118, 0.3);
@@ -92,11 +89,9 @@
   background: linear-gradient(135deg, #d4af44, #a18023); 
 }
 .element-None { 
-  /* For the Traveler before resonating */
   background: linear-gradient(135deg, #9e9e9e, #6b6b6b); 
 }
 
-/* Level Overlay */
 .level-badge {
   position: absolute;
   bottom: 0;
