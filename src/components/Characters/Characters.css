@@ -66,32 +66,6 @@
   box-shadow: 0 0 8px rgba(168, 130, 210, 0.3);
 }
 
-/* Elemental Background Gradients */
-.element-Fire { 
-  background: linear-gradient(135deg, #c44038, #8c2621); 
-}
-.element-Water { 
-  background: linear-gradient(135deg, #4b85cf, #295f9e); 
-}
-.element-Wind { 
-  background: linear-gradient(135deg, #5bc2a6, #32947a); 
-}
-.element-Electric { 
-  background: linear-gradient(135deg, #925ec2, #663791); 
-}
-.element-Grass { 
-  background: linear-gradient(135deg, #8cc441, #5e9122); 
-}
-.element-Ice { 
-  background: linear-gradient(135deg, #8ed9e8, #56a2b3); 
-}
-.element-Rock { 
-  background: linear-gradient(135deg, #d4af44, #a18023); 
-}
-.element-None { 
-  background: linear-gradient(135deg, #9e9e9e, #6b6b6b); 
-}
-
 .level-badge {
   position: absolute;
   bottom: 0;
@@ -104,3 +78,12 @@
   font-weight: bold;
   backdrop-filter: blur(4px);
 }
+
+.element-Fire { background: linear-gradient(to right, #6b1b17, #a8322c); }
+.element-Water { background: linear-gradient(to right, #1a406e, #3a6ba8); }
+.element-Wind { background: linear-gradient(to right, #206351, #43967f); }
+.element-Electric { background: linear-gradient(to right, #41215e, #7345a3); }
+.element-Grass { background: linear-gradient(to right, #395c12, #6b9e28); }
+.element-Ice { background: linear-gradient(to right, #367382, #68b4c7); }
+.element-Rock { background: linear-gradient(to right, #705814, #b5922f); }
+.element-None { background: linear-gradient(to right, #404040, #737373); }
