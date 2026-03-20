@@ -1,43 +1,47 @@
 # A Genshin Memory 🌌
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+> **Link:** https://a-genshin-memory.vercel.app/
 
-> A personal documentation website serving as a digital travel log for *Genshin Impact*. It chronicles the regions visited, lore discovered, and the journey of the Traveler across Teyvat.
+A sleek, interactive React application that allows users to search, view, and save Genshin Impact player profiles using their in-game UID. Built with a focus on clean architecture, responsive design, and deep integration with Genshin's complex character data.
 
-## 📖 About The Project
+## Features
 
-**A Genshin Memory** is a fan-made archive built to document the protagonist's journey through the seven nations. As my first web development project, it focuses on organizing game lore and visual memories into an interactive web format.
+* **Real-time Profile Fetching:** Enter any valid Genshin Impact UID to instantly pull public account data, including Adventure Rank, Abyss progress, and Imaginarium Theater stats.
+* **Shareable URLs:** Features a custom URL hash routing system (`/#profile?uid=123456789`). You can copy your URL and send it to friends, and the app will automatically fetch the correct profile on load while preserving smooth page scrolling.
+* **Detailed Character Showcases:** Click on any showcased character to open a detailed modal displaying their weapon, artifact sets, and combat statistics.
+* **Favorites System:** Save your friends' or your own alternate accounts to a persistent favorites list for one-click access.
 
-It serves as a personal "Archive" of:
-- The diverse regions of Teyvat (Mondstadt, Liyue, Inazuma, Sumeru, Fontaine, etc.).
-- Key landmarks and scenic spots.
-- The narrative progression of the Traveler.
+## Tech Stack
 
-## 📸 Preview
+* **Frontend:** React.js
+* **Styling:** Vanilla CSS (CSS Modules / Global Styles)
+* **Data Source:** [Enka.Network API](https://enka.network/)
 
-![Website Preview](./screenshots/preview.png)
+## Project Structure
 
-## ✨ Features
+The project is structured for scalability, keeping UI components strictly separated from data-fetching and utility logic:
 
-- **Region Showcase:** Dedicated sections for each nation explored by the protagonist.
-- **Lore Documentation:** Summaries and notes on the history and culture of each area.
-- **Visual Gallery:** A collection of screenshots and "memories" from the game.
-- **Navigation:** Easy traversal between different chapters of the journey.
+```text
+src/
+├── assests/
+├── components/          # Reusable UI components (Profiles, Characters, Modals)
+├── hooks/               # Custom React hooks (useGenshinProfile, useHashUid, useFavorites)
+├── pages/               # Helper functions and JSON dictionaries (genshinUtils.js)
+├── utils/               # Top-level page components (Home.jsx)
+└── App.jsx              # Main application entry point
+```
 
-## 🛠️ Tech Stack
+## How to Use
 
-This project was built to learn the fundamentals of web development:
+**1. Search:** Enter a Genshin Impact UID in the top search bar (Note: The user must have "Show Character Details" enabled in their in-game settings for artifacts/weapons to appear).
 
-- **HTML5:** For semantic structure and content organization.
-- **CSS3:** For styling, layouts, and theming (inspired by the game's UI).
-- **JavaScript:** For interactive elements and navigation logic.
-*(If you used a framework like Bootstrap or basic React, you can add it here)*
+**2. Save:** Click "Save Account" to add the profile to your quick-access favorites list.
 
-## 🚀 Getting Started
+**3. Explore:** Scroll down to view the player's showcased characters and namecards. Click on any character card to view their detailed build.
 
-To view the travel log on your machine:
+**4. Share:** Copy the URL from your browser to share that exact profile layout with anyone.
 
-- **Link:** https://a-genshin-memory.vercel.app/
+## Acknowledgments
 
-**Disclaimer** - This project is for personal use and educational purposes only. All game assets, characters, and lore belong to HoYoverse. This is a fan-made documentation site and is not affiliated with the official game.
+* Character data, splash art, and stat APIs provided by the incredible Enka.Network.
+* Game assets and data belong to HoYoverse. This is a fan-made tool and is not affiliated with HoYoverse.
