@@ -1,18 +1,7 @@
 import React from 'react';
 import charactersData from '../../utils/characters.json';
+import { getTravelerElement } from '../../utils/genshinUtils.js';
 import './Characters.css';
-
-const getTravelerElement = (skillDepotId) => {
-  const depotMap = {
-    504: "Wind", 704: "Wind",
-    506: "Rock", 706: "Rock", 
-    507: "Electric", 707: "Electric", 
-    508: "Grass", 708: "Grass", 
-    503: "Water", 703: "Water",
-    502: "Fire", 702: "Fire",
-  };
-  return depotMap[skillDepotId] || "None";
-};
 
 const Characters = ({ playerData, avatarList, equipmentList, onCharacterClick }) => {
   if (!avatarList || avatarList.length === 0) return null;
@@ -38,16 +27,8 @@ const Characters = ({ playerData, avatarList, equipmentList, onCharacterClick })
 
           // Grab the ID from either the detailed list OR the basic list
           const travelerSkillId = detailedCharacter?.skillDepotId || avatar.skillDepotId;
-          if (isTraveler) {
-            console.log("Traveler Detected! Here is their data:", {
-              avatarId: avatar.avatarId,
-              foundSkillId: travelerSkillId,
-              mappedElement: getTravelerElement(travelerSkillId)
-            });
-          }
-
-          const trueElement = (isTraveler && detailedCharacter?.skillDepotId) 
-            ? getTravelerElement(detailedCharacter.skillDepotId) 
+          const trueElement = (isTraveler && travelerSkillId) 
+            ? getTravelerElement(travelerSkillId) 
             : charInfo.Element;
 
           const elementClass = `element-${trueElement}`;
