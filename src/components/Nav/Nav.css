@@ -32,7 +32,7 @@
 }
 
 .nav-content a:hover {
-  color: var(--cyan-color-theme);
+  color: #ffd700;
 }
 
 .nav-content a::after {
@@ -42,7 +42,7 @@
   bottom: -5px;
   width: 0;
   height: 2px;
-  background-color: var(--cyan-color-theme);
+  background-color: #ffd700;
   transition: width 0.3s ease;
 }
 

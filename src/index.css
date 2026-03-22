@@ -10,21 +10,8 @@
 
   --bg-color: rgb(38, 39, 40);
   --text-color: white;
-  --cyan-color-theme: #0D47A1;
   --border-color: rgba(255, 255, 255, 0.2);
   --shadow-color: rgba(0, 0, 0, 0.5);
-  --nav-overlay: rgba(0, 0, 0, 0.3);
-  --setting-btn-shadow1: rgba(255, 255, 255, 0.4);
-  --setting-btn-shadow2: rgba(0, 0, 0, 0.4);
-  --circle-btn-light1: #777;
-  --circle-btn-light2: #3a3a3a;
-  --circle-btn-dark1: #ffffff;
-  --circle-btn-dark2: #d1d1d1;
-  --text-bg-color-travels: rgba(0, 0, 0, 0.5);
-  --img-blur-travels1: rgba(0, 0, 0, 0.1);
-  --img-blur-travels2: rgba(0, 0, 0, 0.5);
-  --sidebar-overlay1: rgb(0, 0, 0, 0.1);
-  --sidebar-overlay2: rgba(0, 0, 0, 0.9);
 }
 
 body {
